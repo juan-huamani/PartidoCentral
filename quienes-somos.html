@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiénes Somos — Partido Central</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    .yellow-bar::before { content: ''; display: block; width: 3rem; height: 4px; background: #F2C200; margin-bottom: 1rem; border-radius: 2px; }
+    .faq-chevron { transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
+    .faq-body { animation: fadeDown 0.25s ease; }
+    @keyframes fadeDown { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+  </style>
+</head>
+<body class="bg-white text-gris-oscuro overflow-x-hidden">
+
+  <header id="global-header" class="fixed w-full z-50 bg-azul-institucional transition-all duration-300 top-0"></header>
+
+  <main class="pt-16 lg:pt-20">
+
+    <!-- ═══════════════════════════════════════════
+         QUIÉNES SOMOS — BLOQUE PRINCIPAL
+    ═══════════════════════════════════════════ -->
+    <section id="quienes-somos" class="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+
+        <!-- Bloque introductorio -->
+        <div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-start mb-20 reveal">
+
+          <div>
+            <p class="text-amarillo-progreso font-black text-sm uppercase tracking-widest mb-3">Nuestra Historia</p>
+            <h2 class="text-azul-institucional font-black leading-tight yellow-bar mb-6" style="font-size:clamp(2rem,4vw,3rem)">
+              Un partido construido<br/>desde los ciudadanos,<br/>para los ciudadanos.
+            </h2>
+            <p class="text-gris-oscuro font-medium leading-relaxed text-base mb-5">
+              El <strong class="font-black text-azul-institucional">Partido Central</strong> es un movimiento político democrático, moderno y de centro, fundado sobre la convicción de que el Perú merece instituciones honestas, propuestas concretas y líderes comprometidos con el bien común.
+            </p>
+            <p class="text-gris-oscuro/75 font-medium leading-relaxed text-base mb-5">
+              No somos un partido de élites ni de caudillos. Somos ciudadanos —profesionales, emprendedores, madres, jóvenes y adultos mayores— que decidieron organizarse para transformar el país desde adentro, con propuestas reales, financiamiento transparente y vocación de servicio.
+            </p>
+            <p class="text-gris-oscuro/75 font-medium leading-relaxed text-base">
+              Nuestra visión es un Perú donde el Estado funcione, donde la ley sea igual para todos, donde cada niño tenga una educación de calidad y cada familia pueda progresar con su esfuerzo. Ese Perú es posible. Ese Perú es el que construimos juntos.
+            </p>
+          </div>
+
+          <!-- Tarjetas de valores -->
+          <div class="grid grid-cols-2 gap-4 lg:pt-4">
+            <div class="bg-azul-institucional rounded-2xl p-6">
+              <div class="w-11 h-11 bg-amarillo-progreso rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-azul-institucional" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <h4 class="text-white font-black text-base mb-1">Honestidad</h4>
+              <p class="text-white/60 font-medium text-xs leading-relaxed">Cero tolerancia a la corrupción, en todo nivel y circunstancia.</p>
+            </div>
+            <div class="bg-gris-claro/60 rounded-2xl p-6 border border-gris-claro">
+              <div class="w-11 h-11 bg-azul-institucional rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              </div>
+              <h4 class="text-azul-institucional font-black text-base mb-1">Progreso</h4>
+              <p class="text-gris-oscuro/65 font-medium text-xs leading-relaxed">Economía que crea oportunidades para todos, no solo para pocos.</p>
+            </div>
+            <div class="bg-gris-claro/60 rounded-2xl p-6 border border-gris-claro">
+              <div class="w-11 h-11 bg-azul-institucional rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <h4 class="text-azul-institucional font-black text-base mb-1">Unidad</h4>
+              <p class="text-gris-oscuro/65 font-medium text-xs leading-relaxed">Un Perú unido en su diversidad, sin fragmentación ni exclusión.</p>
+            </div>
+            <div class="bg-azul-institucional rounded-2xl p-6">
+              <div class="w-11 h-11 bg-amarillo-progreso rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-azul-institucional" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </div>
+              <h4 class="text-white font-black text-base mb-1">Transparencia</h4>
+              <p class="text-white/60 font-medium text-xs leading-relaxed">Cuentas abiertas, decisiones públicas, gestión rendida a la ciudadanía.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Visión de País y Filosofía ── -->
+        <div class="grid lg:grid-cols-2 rounded-3xl overflow-hidden mb-20 reveal shadow-md">
+
+          <!-- Visión de País -->
+          <div class="bg-gris-claro/40 p-10 lg:p-14 border border-gris-claro lg:border-r-0">
+            <p class="text-amarillo-progreso font-black text-sm uppercase tracking-widest mb-3">Visión de País</p>
+            <h2 class="text-azul-institucional font-black leading-tight yellow-bar mb-6" style="font-size:clamp(1.5rem,2.8vw,2rem)">
+              El Perú que queremos construir juntos
+            </h2>
+            <p class="text-gris-oscuro font-medium leading-relaxed text-base mb-4">
+              Imaginamos un Perú donde el Estado funciona para todos: servicios públicos que llegan a cada rincón, justicia que no depende del apellido ni del dinero, y oportunidades reales para cada ciudadano, sin importar dónde nació.
+            </p>
+            <p class="text-gris-oscuro/75 font-medium leading-relaxed text-sm mb-6">
+              Una nación que aprovecha su diversidad cultural y geográfica como fortaleza, compite con éxito en la economía global y protege a los más vulnerables sin paternalismos.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 rounded-full bg-amarillo-progreso flex-shrink-0 mt-[0.4rem]"></span>
+                <span class="text-gris-oscuro font-medium text-sm leading-relaxed">Estado moderno, descentralizado y al servicio del ciudadano</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 rounded-full bg-amarillo-progreso flex-shrink-0 mt-[0.4rem]"></span>
+                <span class="text-gris-oscuro font-medium text-sm leading-relaxed">Economía inclusiva con oportunidades para todas las regiones</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 rounded-full bg-amarillo-progreso flex-shrink-0 mt-[0.4rem]"></span>
+                <span class="text-gris-oscuro font-medium text-sm leading-relaxed">Instituciones fuertes e independientes, sin interferencia política</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Filosofía Política -->
+          <div class="bg-azul-institucional p-10 lg:p-14">
+            <p class="text-amarillo-progreso font-black text-sm uppercase tracking-widest mb-3">Filosofía Política</p>
+            <h2 class="text-white font-black leading-tight mb-2" style="font-size:clamp(1.5rem,2.8vw,2rem)">
+              Centro democrático, reformista y ciudadano
+            </h2>
+            <div class="w-12 h-1 bg-amarillo-progreso rounded-full mb-6"></div>
+            <p class="text-white/75 font-medium leading-relaxed text-base mb-4">
+              El Partido Central se ubica en el <strong class="text-white font-black">centro democrático</strong>: rechazamos los extremos que dividen y apostamos por el diálogo, los acuerdos y las reformas graduales pero firmes.
+            </p>
+            <p class="text-white/60 font-medium leading-relaxed text-sm mb-6">
+              Creemos en el mercado como motor del desarrollo, pero con un Estado que regula, redistribuye y protege a los más vulnerables. No somos ideólogos: somos pragmáticos guiados por la evidencia y el bien común.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 rounded-full bg-amarillo-progreso flex-shrink-0 mt-[0.4rem]"></span>
+                <span class="text-white/80 font-medium text-sm leading-relaxed">Democracia liberal, pluralismo y respeto irrestricto a los DDHH</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 rounded-full bg-amarillo-progreso flex-shrink-0 mt-[0.4rem]"></span>
+                <span class="text-white/80 font-medium text-sm leading-relaxed">Reformismo gradual basado en evidencia, no en ideología</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="w-2 h-2 rounded-full bg-amarillo-progreso flex-shrink-0 mt-[0.4rem]"></span>
+                <span class="text-white/80 font-medium text-sm leading-relaxed">Participación ciudadana activa como pilar de la gobernanza</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ── FAQ ── -->
+        <div class="max-w-3xl mx-auto reveal">
+          <div class="text-center mb-12">
+            <p class="text-amarillo-progreso font-black text-sm uppercase tracking-widest mb-3">Preguntas frecuentes</p>
+            <h2 class="text-azul-institucional font-black leading-tight" style="font-size:clamp(1.75rem,3.5vw,2.5rem)">
+              Todo lo que necesitas saber sobre el Partido Central
+            </h2>
+          </div>
+
+          <div class="space-y-3" id="faq-container">
+
+            <div class="faq-item border border-gris-claro rounded-2xl overflow-hidden transition-all duration-300 hover:border-azul-institucional/25 hover:shadow-sm">
+              <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4 group" onclick="toggleFaq(this)" aria-expanded="false">
+                <span class="text-azul-institucional font-black text-base leading-snug group-hover:text-azul-medio transition-colors">
+                  ¿Quiénes son los fundadores y qué los mueve?
+                </span>
+                <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full bg-gris-claro group-hover:bg-azul-institucional flex items-center justify-center transition-all duration-300">
+                  <svg class="w-4 h-4 text-azul-institucional group-hover:text-white transition-colors faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                </span>
+              </button>
+              <div class="faq-body hidden px-6 pb-6">
+                <p class="text-gris-oscuro font-medium leading-relaxed text-sm">
+                  El Partido Central fue fundado en 2023 por un grupo interdisciplinario de ciudadanos —economistas, educadores, juristas, emprendedores y activistas sociales— unidos por la convicción de que el Perú necesita una alternativa política seria, honesta y con vocación de largo plazo. Ninguno de los fundadores proviene de la clase política tradicional; todos tienen trayectorias en el sector privado, la academia o la sociedad civil, lo que garantiza una mirada fresca y técnica al ejercicio del poder.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item border border-gris-claro rounded-2xl overflow-hidden transition-all duration-300 hover:border-azul-institucional/25 hover:shadow-sm">
+              <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4 group" onclick="toggleFaq(this)" aria-expanded="false">
+                <span class="text-azul-institucional font-black text-base leading-snug group-hover:text-azul-medio transition-colors">
+                  ¿Cuál es la visión del partido para el Perú en 2030?
+                </span>
+                <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full bg-gris-claro group-hover:bg-azul-institucional flex items-center justify-center transition-all duration-300">
+                  <svg class="w-4 h-4 text-azul-institucional group-hover:text-white transition-colors faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                </span>
+              </button>
+              <div class="faq-body hidden px-6 pb-6">
+                <p class="text-gris-oscuro font-medium leading-relaxed text-sm mb-3">
+                  Nuestra visión al 2030 es un Perú donde la pobreza extrema haya sido reducida a menos del 5%, donde todos los estudiantes de escuela pública tengan acceso a internet de calidad, y donde el índice de percepción de corrupción mejore 20 puntos en el ranking Transparency International.
+                </p>
+                <p class="text-gris-oscuro font-medium leading-relaxed text-sm">
+                  Esto no es un eslogan: es un compromiso con indicadores medibles. Nuestro Plan de Gobierno 2026–2031 establece metas concretas por sector, con responsables, plazos y mecanismos de rendición de cuentas ante la ciudadanía cada 6 meses.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item border border-gris-claro rounded-2xl overflow-hidden transition-all duration-300 hover:border-azul-institucional/25 hover:shadow-sm">
+              <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4 group" onclick="toggleFaq(this)" aria-expanded="false">
+                <span class="text-azul-institucional font-black text-base leading-snug group-hover:text-azul-medio transition-colors">
+                  ¿Cómo se financia el Partido Central?
+                </span>
+                <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full bg-gris-claro group-hover:bg-azul-institucional flex items-center justify-center transition-all duration-300">
+                  <svg class="w-4 h-4 text-azul-institucional group-hover:text-white transition-colors faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                </span>
+              </button>
+              <div class="faq-body hidden px-6 pb-6">
+                <p class="text-gris-oscuro font-medium leading-relaxed text-sm mb-3">
+                  Nos financiamos exclusivamente con aportes de ciudadanos peruanos, donaciones de simpatizantes registrados y el financiamiento público que establece la Ley de Organizaciones Políticas (Ley N.° 28094). <strong class="font-black text-azul-institucional">No aceptamos dinero de empresas, grupos económicos, ni personas naturales o jurídicas extranjeras.</strong>
+                </p>
+                <p class="text-gris-oscuro font-medium leading-relaxed text-sm">
+                  Todos nuestros estados financieros son auditados trimestralmente por una firma externa independiente y publicados en nuestro portal de transparencia, donde cualquier ciudadano puede revisarlos.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item border border-gris-claro rounded-2xl overflow-hidden transition-all duration-300 hover:border-azul-institucional/25 hover:shadow-sm">
+              <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4 group" onclick="toggleFaq(this)" aria-expanded="false">
+                <span class="text-azul-institucional font-black text-base leading-snug group-hover:text-azul-medio transition-colors">
+                  ¿Qué beneficios tiene afiliarme al partido?
+                </span>
+                <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full bg-gris-claro group-hover:bg-azul-institucional flex items-center justify-center transition-all duration-300">
+                  <svg class="w-4 h-4 text-azul-institucional group-hover:text-white transition-colors faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                </span>
+              </button>
+              <div class="faq-body hidden px-6 pb-6">
+                <p class="text-gris-oscuro font-medium leading-relaxed text-sm mb-3">
+                  Como afiliado tendrás voz y voto en las asambleas regionales, acceso gratuito a nuestra Escuela de Liderazgo Ciudadano (talleres de gestión pública, comunicación política, oratoria y liderazgo comunitario), y podrás postular a cargos internos del partido.
+                </p>
+                <p class="text-gris-oscuro font-medium leading-relaxed text-sm">
+                  Además, los afiliados activos son los primeros considerados para integrar listas electorales en elecciones municipales, regionales y congresales. Afiliarte es el primer paso para ser protagonista del cambio que el Perú necesita.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item border border-gris-claro rounded-2xl overflow-hidden transition-all duration-300 hover:border-azul-institucional/25 hover:shadow-sm">
+              <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4 group" onclick="toggleFaq(this)" aria-expanded="false">
+                <span class="text-azul-institucional font-black text-base leading-snug group-hover:text-azul-medio transition-colors">
+                  ¿Cuál es la posición del partido en la escala izquierda–derecha?
+                </span>
+                <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full bg-gris-claro group-hover:bg-azul-institucional flex items-center justify-center transition-all duration-300">
+                  <svg class="w-4 h-4 text-azul-institucional group-hover:text-white transition-colors faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                </span>
+              </button>
+              <div class="faq-body hidden px-6 pb-6">
+                <p class="text-gris-oscuro font-medium leading-relaxed text-sm">
+                  Somos un partido de <strong class="font-black text-azul-institucional">centro democrático</strong>. Creemos en la economía de mercado con responsabilidad social, en la iniciativa privada y en un Estado eficiente que garantice derechos fundamentales a todos. Rechazamos los extremismos de cualquier signo porque el Perú necesita diálogo, evidencia y pragmatismo, no ideología.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="mt-10 text-center">
+            <p class="text-gris-oscuro/60 font-medium text-sm mb-4">¿Tienes otra pregunta? Estamos para ayudarte.</p>
+            <a href="contacto.html" class="inline-flex items-center gap-2 bg-azul-institucional hover:bg-azul-medio text-white font-black px-8 py-3.5 rounded-full text-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+              Escríbenos →
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="global-footer" class="bg-azul-institucional text-white border-t border-white/10"></footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    function toggleFaq(btn) {
+      const item   = btn.closest('.faq-item');
+      const body   = item.querySelector('.faq-body');
+      const icon   = item.querySelector('.faq-chevron');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      document.querySelectorAll('.faq-item').forEach(el => {
+        el.querySelector('.faq-body').classList.add('hidden');
+        el.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+        el.querySelector('.faq-chevron').style.transform = 'rotate(0deg)';
+        el.querySelector('.faq-icon').classList.remove('bg-azul-institucional');
+        el.querySelector('.faq-icon').classList.add('bg-gris-claro');
+      });
+
+      if (!isOpen) {
+        body.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        icon.style.transform = 'rotate(180deg)';
+        item.querySelector('.faq-icon').classList.add('bg-azul-institucional');
+        item.querySelector('.faq-icon').classList.remove('bg-gris-claro');
+      }
+    }
+  </script>
+  <script src="layout-loader.js"></script>
+</body>
+</html>

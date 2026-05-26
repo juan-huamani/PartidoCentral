@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto — Partido Central</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    .yellow-bar::before { content: ''; display: block; width: 3rem; height: 4px; background: #F2C200; margin-bottom: 1rem; border-radius: 2px; }
+    input:focus, select:focus, textarea:focus { outline: 2px solid #F2C200; outline-offset: 2px; }
+    .info-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(13,43,92,0.10); }
+    .info-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  </style>
+</head>
+<body class="bg-white text-gris-oscuro overflow-x-hidden">
+
+  <header id="global-header" class="fixed w-full z-50 bg-azul-institucional transition-all duration-300 top-0"></header>
+
+  <main>
+
+    <!-- ═══════════════════════════════════════════
+         BANNER DE PÁGINA
+    ═══════════════════════════════════════════ -->
+    <section class="bg-azul-institucional pt-16 pb-0 relative overflow-hidden">
+      <div class="absolute inset-0 bg-hero-pattern pointer-events-none"></div>
+      <div class="absolute right-0 top-0 w-[400px] h-[400px] bg-azul-medio rounded-full translate-x-1/2 -translate-y-1/3 opacity-40 pointer-events-none"></div>
+      <div class="absolute left-0 bottom-0 w-64 h-64 bg-amarillo-progreso rounded-full -translate-x-1/2 translate-y-1/3 opacity-[0.05] pointer-events-none"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+        <nav class="flex items-center gap-2 mb-5 text-sm" aria-label="Breadcrumb">
+          <a href="index.html" class="text-white/40 hover:text-white/70 transition-colors font-medium">Inicio</a>
+          <span class="text-white/25">/</span>
+          <span class="text-amarillo-progreso font-semibold">Contacto</span>
+        </nav>
+        <p class="text-amarillo-progreso font-black text-sm uppercase tracking-widest mb-3">Escríbenos</p>
+        <h1 class="text-white font-black leading-tight mb-4" style="font-size: clamp(2.2rem, 5vw, 3.75rem);">
+          Estamos aquí para escucharte
+        </h1>
+        <p class="text-white/65 font-medium max-w-xl leading-relaxed" style="font-size: 1.05rem;">
+          ¿Tienes una propuesta, denuncia, consulta o simplemente quieres saber más? Responderemos en menos de 48 horas.
+        </p>
+      </div>
+
+      <div class="relative -mb-px">
+        <svg viewBox="0 0 1440 50" preserveAspectRatio="none" class="w-full h-10 lg:h-14 fill-white block">
+          <path d="M0,0 C360,50 1080,50 1440,0 L1440,50 L0,50 Z"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         TARJETAS DE INFORMACIÓN INSTITUCIONAL
+    ═══════════════════════════════════════════ -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-20 reveal">
+
+          <!-- Dirección -->
+          <div class="info-card bg-white border border-gris-claro rounded-2xl p-6">
+            <div class="w-12 h-12 bg-azul-institucional rounded-2xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <h4 class="text-azul-institucional font-black text-sm uppercase tracking-widest mb-2">Dirección</h4>
+            <p class="text-gris-oscuro/70 font-medium text-sm leading-relaxed">Av. Javier Prado Este 4200<br/>San Borja, Lima 15037<br/>Perú</p>
+          </div>
+
+          <!-- Teléfono -->
+          <div class="info-card bg-white border border-gris-claro rounded-2xl p-6">
+            <div class="w-12 h-12 bg-amarillo-progreso rounded-2xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-azul-institucional" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <h4 class="text-azul-institucional font-black text-sm uppercase tracking-widest mb-2">Teléfono</h4>
+            <p class="text-gris-oscuro/70 font-medium text-sm leading-relaxed mb-1">(01) 234-5678</p>
+            <p class="text-gris-oscuro/70 font-medium text-sm leading-relaxed">WhatsApp: +51 987 654 321</p>
+          </div>
+
+          <!-- Email -->
+          <div class="info-card bg-white border border-gris-claro rounded-2xl p-6">
+            <div class="w-12 h-12 bg-azul-institucional rounded-2xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <h4 class="text-azul-institucional font-black text-sm uppercase tracking-widest mb-2">Correo</h4>
+            <p class="text-gris-oscuro/70 font-medium text-sm leading-relaxed mb-1">contacto@partidocentral.pe</p>
+            <p class="text-gris-oscuro/70 font-medium text-sm leading-relaxed">prensa@partidocentral.pe</p>
+          </div>
+
+          <!-- Horario -->
+          <div class="info-card bg-azul-institucional rounded-2xl p-6">
+            <div class="w-12 h-12 bg-amarillo-progreso rounded-2xl flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-azul-institucional" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h4 class="text-white font-black text-sm uppercase tracking-widest mb-2">Horario</h4>
+            <p class="text-white/70 font-medium text-sm leading-relaxed mb-1">Lun – Vie: 9:00 am – 6:00 pm</p>
+            <p class="text-white/70 font-medium text-sm leading-relaxed">Sáb: 9:00 am – 1:00 pm</p>
+            <p class="text-white/40 font-medium text-xs mt-2">Sede Central — Lima</p>
+          </div>
+        </div>
+
+        <!-- ── Formulario + Redes ── -->
+        <div class="grid lg:grid-cols-[1fr_380px] gap-12 xl:gap-16 items-start reveal">
+
+          <!-- Formulario -->
+          <div>
+            <p class="text-amarillo-progreso font-black text-sm uppercase tracking-widest mb-3">Formulario de contacto</p>
+            <h2 class="text-azul-institucional font-black leading-tight yellow-bar mb-8" style="font-size:clamp(1.75rem,3.5vw,2.5rem)">
+              Envíanos tu mensaje
+            </h2>
+
+            <form id="form-contacto" class="space-y-5" onsubmit="handleContactForm(event)" novalidate>
+
+              <!-- Nombre + Email -->
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="c-nombre" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Nombre completo <span class="text-red-500">*</span></label>
+                  <input id="c-nombre" type="text" placeholder="Ej. Carlos Flores" required
+                    class="w-full border border-gris-claro rounded-xl px-4 py-3.5 text-sm font-medium text-gris-oscuro transition-colors bg-gris-claro/20 hover:border-gris-medio focus:border-azul-institucional" />
+                </div>
+                <div>
+                  <label for="c-email" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Correo electrónico <span class="text-red-500">*</span></label>
+                  <input id="c-email" type="email" placeholder="tucorreo@ejemplo.com" required
+                    class="w-full border border-gris-claro rounded-xl px-4 py-3.5 text-sm font-medium text-gris-oscuro transition-colors bg-gris-claro/20 hover:border-gris-medio focus:border-azul-institucional" />
+                </div>
+              </div>
+
+              <!-- Teléfono + Región -->
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="c-tel" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Teléfono</label>
+                  <input id="c-tel" type="tel" placeholder="+51 999 888 777"
+                    class="w-full border border-gris-claro rounded-xl px-4 py-3.5 text-sm font-medium text-gris-oscuro transition-colors bg-gris-claro/20 hover:border-gris-medio focus:border-azul-institucional" />
+                </div>
+                <div>
+                  <label for="c-region" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Región</label>
+                  <select id="c-region" class="w-full border border-gris-claro rounded-xl px-4 py-3.5 text-sm font-medium text-gris-oscuro transition-colors bg-gris-claro/20 hover:border-gris-medio focus:border-azul-institucional">
+                    <option value="">Selecciona tu región…</option>
+                    <option>Lima</option><option>Arequipa</option><option>Cusco</option>
+                    <option>Piura</option><option>La Libertad</option><option>Lambayeque</option>
+                    <option>Junín</option><option>Loreto</option><option>Callao</option>
+                    <option>Ica</option><option>Ancash</option><option>Cajamarca</option>
+                    <option>Puno</option><option>Tacna</option><option>Otra región</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Motivo -->
+              <div>
+                <label for="c-motivo" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Motivo del contacto <span class="text-red-500">*</span></label>
+                <select id="c-motivo" required class="w-full border border-gris-claro rounded-xl px-4 py-3.5 text-sm font-medium text-gris-oscuro transition-colors bg-gris-claro/20 hover:border-gris-medio focus:border-azul-institucional">
+                  <option value="">Selecciona un motivo…</option>
+                  <option>Propuesta ciudadana</option>
+                  <option>Consulta sobre el partido</option>
+                  <option>Prensa y comunicaciones</option>
+                  <option>Denuncia de irregularidades</option>
+                  <option>Solicitud de información</option>
+                  <option>Alianza institucional</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+
+              <!-- Asunto -->
+              <div>
+                <label for="c-asunto" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Asunto</label>
+                <input id="c-asunto" type="text" placeholder="Resumen breve de tu mensaje"
+                  class="w-full border border-gris-claro rounded-xl px-4 py-3.5 text-sm font-medium text-gris-oscuro transition-colors bg-gris-claro/20 hover:border-gris-medio focus:border-azul-institucional" />
+              </div>
+
+              <!-- Mensaje -->
+              <div>
+                <label for="c-mensaje" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Mensaje <span class="text-red-500">*</span></label>
+                <textarea id="c-mensaje" rows="6" placeholder="Escribe tu mensaje aquí. Mientras más detallado, mejor podremos ayudarte." required
+                  class="w-full border border-gris-claro rounded-xl px-4 py-3.5 text-sm font-medium text-gris-oscuro transition-colors bg-gris-claro/20 hover:border-gris-medio focus:border-azul-institucional resize-none"></textarea>
+              </div>
+
+              <!-- Checkbox privacidad -->
+              <div class="flex items-start gap-3">
+                <input id="c-privacidad" type="checkbox" required class="mt-1 w-4 h-4 accent-azul-institucional flex-shrink-0" />
+                <label for="c-privacidad" class="text-xs text-gris-oscuro/65 font-medium leading-relaxed">
+                  He leído y acepto la <a href="#" class="text-azul-institucional underline hover:text-amarillo-progreso transition-colors font-semibold">Política de Privacidad</a> del Partido Central y autorizo el tratamiento de mis datos personales para responder a mi consulta.
+                </label>
+              </div>
+
+              <button type="submit"
+                class="w-full sm:w-auto bg-azul-institucional hover:bg-azul-medio text-white font-black text-base px-12 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
+                Enviar mensaje →
+              </button>
+
+            </form>
+          </div>
+
+          <!-- Columna lateral: Redes + Información adicional -->
+          <div class="space-y-6 lg:sticky lg:top-28">
+
+            <!-- Redes Sociales -->
+            <div class="bg-azul-institucional rounded-2xl p-6">
+              <p class="text-amarillo-progreso font-black text-xs uppercase tracking-widest mb-4">Síguenos en redes</p>
+              <div class="space-y-3">
+                <a href="#" class="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
+                  <span class="w-10 h-10 bg-white/10 group-hover:bg-amarillo-progreso group-hover:text-azul-institucional rounded-xl flex items-center justify-center transition-all duration-300 flex-shrink-0">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                  </span>
+                  <div>
+                    <p class="font-black text-sm text-white">Facebook</p>
+                    <p class="text-white/40 text-xs font-medium">@PartidoCentralPeru</p>
+                  </div>
+                </a>
+                <a href="#" class="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
+                  <span class="w-10 h-10 bg-white/10 group-hover:bg-amarillo-progreso group-hover:text-azul-institucional rounded-xl flex items-center justify-center transition-all duration-300 flex-shrink-0">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  </span>
+                  <div>
+                    <p class="font-black text-sm text-white">Twitter / X</p>
+                    <p class="text-white/40 text-xs font-medium">@PartidoCentral</p>
+                  </div>
+                </a>
+                <a href="#" class="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
+                  <span class="w-10 h-10 bg-white/10 group-hover:bg-amarillo-progreso group-hover:text-azul-institucional rounded-xl flex items-center justify-center transition-all duration-300 flex-shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                  </span>
+                  <div>
+                    <p class="font-black text-sm text-white">Instagram</p>
+                    <p class="text-white/40 text-xs font-medium">@partidocentralperu</p>
+                  </div>
+                </a>
+                <a href="#" class="flex items-center gap-3 text-white/70 hover:text-white transition-colors group">
+                  <span class="w-10 h-10 bg-white/10 group-hover:bg-amarillo-progreso group-hover:text-azul-institucional rounded-xl flex items-center justify-center transition-all duration-300 flex-shrink-0">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+                  </span>
+                  <div>
+                    <p class="font-black text-sm text-white">YouTube</p>
+                    <p class="text-white/40 text-xs font-medium">Partido Central Oficial</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card Prensa -->
+            <div class="bg-amarillo-progreso/10 border border-amarillo-progreso/25 rounded-2xl p-6">
+              <div class="w-10 h-10 bg-amarillo-progreso rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-5 h-5 text-azul-institucional" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+              </div>
+              <h4 class="text-azul-institucional font-black text-base mb-2">Sala de Prensa</h4>
+              <p class="text-gris-oscuro/65 font-medium text-xs leading-relaxed mb-4">Para solicitudes de entrevistas, declaraciones oficiales o kit de prensa, escríbenos directamente al correo de prensa.</p>
+              <a href="mailto:prensa@partidocentral.pe" class="text-azul-institucional font-black text-sm hover:text-amarillo-hover transition-colors">
+                prensa@partidocentral.pe →
+              </a>
+            </div>
+
+            <!-- Card Denuncia -->
+            <div class="bg-white border border-gris-claro rounded-2xl p-6">
+              <div class="w-10 h-10 bg-azul-institucional rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+              </div>
+              <h4 class="text-azul-institucional font-black text-base mb-2">Línea de Transparencia</h4>
+              <p class="text-gris-oscuro/65 font-medium text-xs leading-relaxed mb-4">Denuncias de irregularidades internas o externas. Garantizamos absoluta reserva de identidad.</p>
+              <p class="text-azul-institucional font-black text-sm">transparencia@partidocentral.pe</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SEDES REGIONALES
+    ═══════════════════════════════════════════ -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gris-claro/30">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12 reveal">
+          <p class="text-amarillo-progreso font-black text-sm uppercase tracking-widest mb-3">Presencia nacional</p>
+          <h2 class="text-azul-institucional font-black leading-tight" style="font-size:clamp(1.75rem,3.5vw,2.5rem)">
+            Sedes regionales
+          </h2>
+          <p class="text-gris-oscuro/65 font-medium mt-3 max-w-xl mx-auto leading-relaxed">
+            Estamos presentes en las principales ciudades del Perú. Encuéntranos cerca de ti.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 reveal">
+
+          <div class="bg-white rounded-2xl p-6 border border-gris-claro hover:border-azul-institucional/25 hover:shadow-md transition-all duration-300">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-azul-institucional rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+              </div>
+              <div>
+                <h4 class="text-azul-institucional font-black text-base mb-1">Lima — Sede Central</h4>
+                <p class="text-gris-oscuro/65 font-medium text-xs leading-relaxed">Av. Javier Prado Este 4200, San Borja</p>
+                <p class="text-gris-oscuro/50 font-medium text-xs mt-1">(01) 234-5678</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 border border-gris-claro hover:border-azul-institucional/25 hover:shadow-md transition-all duration-300">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-azul-institucional rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+              </div>
+              <div>
+                <h4 class="text-azul-institucional font-black text-base mb-1">Arequipa</h4>
+                <p class="text-gris-oscuro/65 font-medium text-xs leading-relaxed">Calle San Francisco 123, Centro Histórico</p>
+                <p class="text-gris-oscuro/50 font-medium text-xs mt-1">(054) 234-567</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 border border-gris-claro hover:border-azul-institucional/25 hover:shadow-md transition-all duration-300">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-azul-institucional rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+              </div>
+              <div>
+                <h4 class="text-azul-institucional font-black text-base mb-1">Cusco</h4>
+                <p class="text-gris-oscuro/65 font-medium text-xs leading-relaxed">Av. El Sol 456, Wanchaq</p>
+                <p class="text-gris-oscuro/50 font-medium text-xs mt-1">(084) 234-567</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 border border-gris-claro hover:border-azul-institucional/25 hover:shadow-md transition-all duration-300">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-azul-institucional rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+              </div>
+              <div>
+                <h4 class="text-azul-institucional font-black text-base mb-1">Trujillo</h4>
+                <p class="text-gris-oscuro/65 font-medium text-xs leading-relaxed">Jr. Independencia 789, Centro</p>
+                <p class="text-gris-oscuro/50 font-medium text-xs mt-1">(044) 234-567</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 border border-gris-claro hover:border-azul-institucional/25 hover:shadow-md transition-all duration-300">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 bg-azul-institucional rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/></svg>
+              </div>
+              <div>
+                <h4 class="text-azul-institucional font-black text-base mb-1">Piura</h4>
+                <p class="text-gris-oscuro/65 font-medium text-xs leading-relaxed">Av. Grau 321, Centro Cívico</p>
+                <p class="text-gris-oscuro/50 font-medium text-xs mt-1">(073) 234-567</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA más sedes -->
+          <div class="bg-azul-institucional rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <p class="text-amarillo-progreso font-black text-xs uppercase tracking-widest mb-2">+20 sedes más</p>
+              <h4 class="text-white font-black text-base mb-2">¿No encuentras tu ciudad?</h4>
+              <p class="text-white/60 font-medium text-xs leading-relaxed">Tenemos voluntarios y delegados en las 25 regiones del Perú. Escríbenos y te conectamos con tu sede más cercana.</p>
+            </div>
+            <a href="#form-contacto" class="mt-5 inline-flex items-center gap-2 bg-amarillo-progreso hover:bg-amarillo-hover text-azul-institucional font-black text-sm px-5 py-2.5 rounded-xl transition-all duration-300 hover:-translate-y-0.5 self-start">
+              Consultar sede →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="global-footer" class="bg-azul-institucional text-white"></footer>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 bg-azul-institucional text-white px-6 py-4 rounded-2xl shadow-2xl font-bold text-sm flex items-center gap-3 translate-y-24 opacity-0 transition-all duration-500 z-50 max-w-sm">
+    <svg class="w-5 h-5 text-amarillo-progreso flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+    <span id="toast-msg">¡Mensaje enviado con éxito!</span>
+  </div>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = msg;
+      t.style.transform = 'translateY(0)';
+      t.style.opacity = '1';
+      setTimeout(() => { t.style.transform = 'translateY(96px)'; t.style.opacity = '0'; }, 3800);
+    }
+
+    function handleContactForm(e) {
+      e.preventDefault();
+      showToast('¡Mensaje enviado! Te responderemos en 48 horas.');
+      e.target.reset();
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        if (!id) return;
+        const el = document.getElementById(id);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+  <script src="layout-loader.js"></script>
+</body>
+</html>
