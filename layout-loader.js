@@ -36,21 +36,23 @@
 
   // ── 4. SVG logo strings ───────────────────────────────────────────────────────
   const logoSVG = `<svg class="w-10 h-10 lg:w-12 lg:h-12 flex-shrink-0" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Partido Central">
-          <path d="M67.85 59.50 A34 34 0 0 1 45.90 73.48 L43.65 60.68 A21 21 0 0 0 57.20 52.05Z" fill="white"/>
-          <path d="M43.55 73.81 A34 34 0 0 1 18.60 66.42 L26.78 56.32 A21 21 0 0 0 42.19 60.88Z" fill="white"/>
-          <path d="M16.81 64.87 A34 34 0 0 1 6.02 41.19 L19.01 40.73 A21 21 0 0 0 25.68 55.36Z" fill="white"/>
-          <path d="M6.02 38.81 A34 34 0 0 1 16.81 15.13 L25.68 24.64 A21 21 0 0 0 19.01 39.27Z" fill="#F2C200"/>
-          <path d="M18.60 13.58 A34 34 0 0 1 43.55 6.19 L42.19 19.12 A21 21 0 0 0 26.78 23.68Z" fill="white"/>
-          <path d="M45.90 6.52 A34 34 0 0 1 67.85 20.50 L57.20 27.95 A21 21 0 0 0 43.65 19.32Z" fill="white"/>
+          <path d="M69.44 57.00 A34 34 0 0 1 51.63 71.95 L47.18 59.73 A21 21 0 0 0 58.19 50.50 Z" fill="white"/>
+          <path d="M49.94 72.51 A34 34 0 0 1 26.72 71.30 L31.79 59.33 A21 21 0 0 0 46.14 60.08 Z" fill="white"/>
+          <path d="M25.10 70.56 A34 34 0 0 1 8.94 53.83 L20.82 48.54 A21 21 0 0 0 30.79 58.87 Z" fill="white"/>
+          <path d="M8.26 52.18 A34 34 0 0 1 7.85 28.93 L20.14 33.16 A21 21 0 0 0 20.39 47.53 Z" fill="#F2C200"/>
+          <path d="M8.48 27.26 A34 34 0 0 1 24.04 9.98 L30.14 21.46 A21 21 0 0 0 20.53 32.13 Z" fill="white"/>
+          <path d="M25.63 9.19 A34 34 0 0 1 48.80 7.16 L45.44 19.72 A21 21 0 0 0 31.13 20.97 Z" fill="white"/>
+          <path d="M50.51 7.66 A34 34 0 0 1 68.83 21.98 L57.81 28.87 A21 21 0 0 0 46.49 20.03 Z" fill="white"/>
         </svg>`;
 
   const footerLogoSVG = `<svg class="w-10 h-10 flex-shrink-0" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M67.85 59.50 A34 34 0 0 1 45.90 73.48 L43.65 60.68 A21 21 0 0 0 57.20 52.05Z" fill="white" opacity="0.9"/>
-            <path d="M43.55 73.81 A34 34 0 0 1 18.60 66.42 L26.78 56.32 A21 21 0 0 0 42.19 60.88Z" fill="white" opacity="0.9"/>
-            <path d="M16.81 64.87 A34 34 0 0 1 6.02 41.19 L19.01 40.73 A21 21 0 0 0 25.68 55.36Z" fill="white" opacity="0.9"/>
-            <path d="M6.02 38.81 A34 34 0 0 1 16.81 15.13 L25.68 24.64 A21 21 0 0 0 19.01 39.27Z" fill="#F2C200"/>
-            <path d="M18.60 13.58 A34 34 0 0 1 43.55 6.19 L42.19 19.12 A21 21 0 0 0 26.78 23.68Z" fill="white" opacity="0.9"/>
-            <path d="M45.90 6.52 A34 34 0 0 1 67.85 20.50 L57.20 27.95 A21 21 0 0 0 43.65 19.32Z" fill="white" opacity="0.9"/>
+            <path d="M69.44 57.00 A34 34 0 0 1 51.63 71.95 L47.18 59.73 A21 21 0 0 0 58.19 50.50 Z" fill="white" opacity="0.9"/>
+            <path d="M49.94 72.51 A34 34 0 0 1 26.72 71.30 L31.79 59.33 A21 21 0 0 0 46.14 60.08 Z" fill="white" opacity="0.9"/>
+            <path d="M25.10 70.56 A34 34 0 0 1 8.94 53.83 L20.82 48.54 A21 21 0 0 0 30.79 58.87 Z" fill="white" opacity="0.9"/>
+            <path d="M8.26 52.18 A34 34 0 0 1 7.85 28.93 L20.14 33.16 A21 21 0 0 0 20.39 47.53 Z" fill="#F2C200"/>
+            <path d="M8.48 27.26 A34 34 0 0 1 24.04 9.98 L30.14 21.46 A21 21 0 0 0 20.53 32.13 Z" fill="white" opacity="0.9"/>
+            <path d="M25.63 9.19 A34 34 0 0 1 48.80 7.16 L45.44 19.72 A21 21 0 0 0 31.13 20.97 Z" fill="white" opacity="0.9"/>
+            <path d="M50.51 7.66 A34 34 0 0 1 68.83 21.98 L57.81 28.87 A21 21 0 0 0 46.49 20.03 Z" fill="white" opacity="0.9"/>
           </svg>`;
 
   // ── 5. Header HTML ────────────────────────────────────────────────────────────
@@ -75,7 +77,7 @@
 
         <div class="hidden lg:flex items-center gap-3">
           <a href="propuestas.html#donar" class="border border-amarillo-progreso/60 hover:border-amarillo-progreso text-amarillo-progreso hover:bg-amarillo-progreso/10 px-5 py-2 rounded-full text-sm font-black tracking-wide transition-all duration-200">Donar</a>
-          <a href="${volunteerHref}" class="bg-amarillo-progreso hover:bg-amarillo-hover text-azul-institucional px-6 py-2 rounded-full text-sm font-black tracking-wide transition-all duration-200 btn-cta-pulse">Ser Voluntario</a>
+          <a href="${volunteerHref}" class="bg-amarillo-progreso hover:bg-amarillo-hover text-azul-institucional px-6 py-2 rounded-full text-sm font-black tracking-wide transition-all duration-200 btn-cta-pulse">¡Únete!</a>
         </div>
 
         <button id="menu-toggle" class="lg:hidden text-white p-2 rounded-md hover:bg-white/10 transition-colors" aria-label="Abrir menú" aria-expanded="false">
@@ -97,7 +99,7 @@
       ${mobileNavLink('propuestas.html', 'Pilares de Gobierno')}
       ${mobileNavLink('contacto.html', 'Contacto')}
       <div class="mt-6 space-y-3">
-        <a href="${volunteerHref}" class="block bg-amarillo-progreso text-azul-institucional text-center py-3.5 rounded-full font-black text-lg">Ser Voluntario</a>
+        <a href="${volunteerHref}" class="block bg-amarillo-progreso text-azul-institucional text-center py-3.5 rounded-full font-black text-lg">¡Únete!</a>
         <a href="propuestas.html#donar" class="block border-2 border-amarillo-progreso/70 text-amarillo-progreso text-center py-3 rounded-full font-black text-base hover:bg-amarillo-progreso/10 transition-colors">Donar →</a>
       </div>
     </div>
@@ -132,7 +134,7 @@
         <div>
           <h4 class="text-white font-bold text-xs uppercase tracking-widest mb-3">Únete y Apoya</h4>
           <ul class="space-y-2">
-            <li><a href="index.html#form-hero-unete" class="text-white/50 hover:text-amarillo-progreso text-xs font-medium transition-colors">Ser Voluntario</a></li>
+            <li><a href="index.html#form-hero-unete" class="text-white/50 hover:text-amarillo-progreso text-xs font-medium transition-colors">¡Únete!</a></li>
             <li><a href="propuestas.html#donar" class="text-white/50 hover:text-amarillo-progreso text-xs font-medium transition-colors">Hacer una Donación</a></li>
           </ul>
         </div>
