@@ -74,6 +74,7 @@
         </nav>
 
         <div class="hidden lg:flex items-center gap-3">
+          <a href="propuestas.html#donar" class="border border-amarillo-progreso/60 hover:border-amarillo-progreso text-amarillo-progreso hover:bg-amarillo-progreso/10 px-5 py-2 rounded-full text-sm font-black tracking-wide transition-all duration-200">Donar</a>
           <a href="${volunteerHref}" class="bg-amarillo-progreso hover:bg-amarillo-hover text-azul-institucional px-6 py-2 rounded-full text-sm font-black tracking-wide transition-all duration-200 btn-cta-pulse">Ser Voluntario</a>
         </div>
 
@@ -95,8 +96,9 @@
       ${mobileNavLink('quienes-somos.html', 'Quiénes Somos')}
       ${mobileNavLink('propuestas.html', 'Pilares de Gobierno')}
       ${mobileNavLink('contacto.html', 'Contacto')}
-      <div class="mt-6">
+      <div class="mt-6 space-y-3">
         <a href="${volunteerHref}" class="block bg-amarillo-progreso text-azul-institucional text-center py-3.5 rounded-full font-black text-lg">Ser Voluntario</a>
+        <a href="propuestas.html#donar" class="block border-2 border-amarillo-progreso/70 text-amarillo-progreso text-center py-3 rounded-full font-black text-base hover:bg-amarillo-progreso/10 transition-colors">Donar →</a>
       </div>
     </div>
   `;
