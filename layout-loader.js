@@ -118,7 +118,7 @@
               <p class="text-white/40 text-xs font-medium tracking-wider">Partido Central</p>
             </div>
           </div>
-          <p class="text-white/45 text-xs font-medium leading-relaxed">Por un Perú honesto, próspero e inclusivo.</p>
+          <p class="text-white/45 text-xs font-medium leading-relaxed">Por un Perú desarrollado, honesto y con oportunidades para todos.</p>
         </div>
 
         <div>
