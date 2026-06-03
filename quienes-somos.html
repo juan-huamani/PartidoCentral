@@ -15,6 +15,15 @@
     .faq-chevron { transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
     .faq-body { animation: fadeDown 0.25s ease; }
     @keyframes fadeDown { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
+    #modal-carta:not(.hidden) { animation: modalIn 0.25s ease; }
+    @keyframes modalIn { from { opacity:0; } to { opacity:1; } }
+    #modal-carta:not(.hidden) > div:last-child { animation: modalSlide 0.25s ease; }
+    @keyframes modalSlide { from { opacity:0; transform:translateY(12px) scale(0.98); } to { opacity:1; transform:translateY(0) scale(1); } }
+    #modal-carta-body::-webkit-scrollbar { width: 6px; }
+    #modal-carta-body::-webkit-scrollbar-track { background: transparent; }
+    #modal-carta-body::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 9999px; }
+    #modal-carta-body::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+    #modal-carta-body { scrollbar-width: thin; scrollbar-color: #d1d5db transparent; }
   </style>
 </head>
 <body class="bg-white text-gris-oscuro overflow-x-hidden">
@@ -26,7 +35,7 @@
     <!-- ═══════════════════════════════════════════
          QUIÉNES SOMOS — BLOQUE PRINCIPAL
     ═══════════════════════════════════════════ -->
-    <section id="quienes-somos" class="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="quienes-somos" class="pt-8 pb-24 px-4 sm:px-6 lg:px-8 bg-white">
       <div class="max-w-7xl mx-auto">
 
         <!-- Bloque introductorio -->
@@ -143,7 +152,7 @@
 
         </div>
 
-        <!-- ── Carta del Fundador ── -->
+        <!-- ── Carta del Fundador (preview) ── -->
         <div class="max-w-3xl mx-auto mb-20 reveal">
           <div class="rounded-3xl overflow-hidden shadow-sm border border-azul-institucional/15">
 
@@ -158,52 +167,30 @@
             </div>
 
             <div class="bg-white px-10 lg:px-14 py-10">
-              <div class="space-y-4 text-gris-oscuro/80 font-medium leading-relaxed text-sm">
-
-                <p class="text-gris-oscuro/55 font-medium italic">Queridos peruanos,</p>
-
-                <p>Mi nombre es <strong class="font-black text-azul-institucional">Pepe Cordero</strong>. Soy esposo, padre de dos hijas, profesional peruano y, como millones de ustedes, alguien que sueña con un mejor futuro para nuestro país.</p>
-
-                <p>Nací y crecí en una familia de clase media trabajadora. Como muchas familias peruanas, aprendimos desde pequeños el valor del esfuerzo, del trabajo honesto y de salir adelante con sacrificio. Con el tiempo tuve la oportunidad de estudiar, trabajar en distintos países y liderar equipos internacionales en organizaciones globales. Y mientras más conocía el mundo, más convencido estaba de algo: el Perú tiene todo para convertirse en un país desarrollado.</p>
-
-                <div class="border-l-4 border-amarillo-progreso pl-5 my-2 space-y-1">
-                  <p class="text-azul-institucional font-black text-base">Tenemos talento.</p>
-                  <p class="text-azul-institucional font-black text-base">Tenemos recursos.</p>
-                  <p class="text-azul-institucional font-black text-base">Tenemos gente trabajadora.</p>
-                </div>
-
-                <p>Lo que nos falta es dirección, instituciones sólidas y una política que piense más en el país que en sí misma.</p>
-
-                <p class="font-black text-azul-institucional text-base">Por eso nace Partido Central.</p>
-
-                <p>Este proyecto nace de una convicción simple pero profunda: el lugar donde naces no debería determinar tu futuro. Creemos en un Perú con igualdad de oportunidades, donde cada niño tenga acceso a nutrición, salud y educación de calidad desde el primer día de vida. Un Perú donde el esfuerzo vuelva a valer la pena.</p>
-
-                <p>También creemos en un Estado moderno, meritocrático y eficiente. Un país no cambia solo con discursos. Cambia con gestión, preparación y personas honestas ocupando los espacios de decisión.</p>
-
-                <p class="bg-azul-institucional/[0.06] border border-azul-institucional/15 rounded-xl px-5 py-4 text-azul-institucional font-medium italic">Quiero ser muy claro en algo: <strong class="font-black">este partido no se trata de mí.</strong></p>
-
-                <p>Partido Central no nace para servir a una persona, sino para construir un proyecto colectivo, serio y de largo plazo. Un espacio donde personas honestas, preparadas y comprometidas puedan trabajar juntas por el país que merecemos.</p>
-
-                <p>Este camino recién comienza y no será fácil. Pero estoy convencido de que todavía estamos a tiempo de cambiar el rumbo de nuestro país.</p>
-
-                <div class="space-y-1 text-gris-oscuro/65">
-                  <p>Gracias por estar aquí.</p>
-                  <p>Gracias por creer.</p>
-                  <p>Y gracias por dar este primer paso junto a nosotros.</p>
-                </div>
-
-                <p class="font-medium italic text-gris-oscuro/60">Construyamos juntos el Perú que nuestros hijos merecen.</p>
-
+              <div class="relative">
+                <p class="text-gris-oscuro/55 font-medium italic text-sm mb-4">Queridos peruanos,</p>
+                <p class="text-gris-oscuro/80 font-medium leading-relaxed text-sm mb-4">
+                  Mi nombre es <strong class="font-black text-azul-institucional">Pepe Cordero</strong>. Soy esposo, padre de dos hijas, profesional peruano y, como millones de ustedes, alguien que sueña con un mejor futuro para nuestro país.
+                </p>
+                <p class="text-gris-oscuro/80 font-medium leading-relaxed text-sm">
+                  Nací y crecí en una familia de clase media trabajadora. Como muchas familias peruanas, aprendimos desde pequeños el valor del esfuerzo, del trabajo honesto y de salir adelante con sacrificio. Con el tiempo tuve la oportunidad de estudiar, trabajar en distintos países y liderar equipos internacionales…
+                </p>
+                <div class="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
               </div>
 
-              <div class="mt-8 pt-6 border-t border-gris-claro flex items-center gap-4">
-                <div class="w-12 h-12 bg-azul-institucional rounded-xl flex items-center justify-center flex-shrink-0">
-                  <span class="text-white font-black text-base tracking-wide">PC</span>
+              <div class="mt-6 pt-6 border-t border-gris-claro flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 bg-azul-institucional rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span class="text-white font-black text-sm tracking-wide">PC</span>
+                  </div>
+                  <div>
+                    <p class="text-azul-institucional font-black text-sm">Pepe Cordero</p>
+                    <p class="text-gris-oscuro/50 text-xs font-medium">Líder Fundador · Partido Central</p>
+                  </div>
                 </div>
-                <div>
-                  <p class="text-azul-institucional font-black text-base">Pepe Cordero</p>
-                  <p class="text-gris-oscuro/50 text-xs font-medium">Líder Fundador · Partido Central</p>
-                </div>
+                <button onclick="openModal()" class="inline-flex items-center gap-2 bg-azul-institucional hover:bg-azul-medio text-white font-black text-sm px-6 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg flex-shrink-0">
+                  Leer carta completa →
+                </button>
               </div>
             </div>
 
@@ -251,7 +238,7 @@
               </button>
               <div class="faq-body hidden px-6 pb-6">
                 <p class="text-gris-oscuro font-medium leading-relaxed text-sm mb-3">
-                  No. Pepe Cordero es el fundador y candidato presidencial, pero el Partido Central fue diseñado explícitamente para <strong class="font-black text-azul-institucional">no depender de ninguna persona</strong>. Las decisiones se toman en colectivo, los estatutos garantizan renovación de liderazgos y el partido tiene estructuras regionales independientes.
+                  No. Pepe Cordero es el fundador, pero el Partido Central fue diseñado explícitamente para <strong class="font-black text-azul-institucional">no depender de ninguna persona</strong>. Las decisiones se toman en colectivo, los estatutos garantizan renovación de liderazgos y el partido tiene estructuras regionales independientes.
                 </p>
                 <p class="text-gris-oscuro font-medium leading-relaxed text-sm">
                   El objetivo es construir una institución que trascienda a cualquier individuo. El Perú ya tiene demasiados partidos-caudillo. Este no será uno más.
@@ -333,6 +320,76 @@
 
   <footer id="global-footer" class="bg-azul-institucional text-white border-t border-white/10"></footer>
 
+  <!-- ── Modal: Carta del Fundador ── -->
+  <div id="modal-carta" class="hidden fixed inset-0 z-[100] grid place-items-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-carta-title">
+    <div class="absolute inset-0 bg-azul-institucional/75 backdrop-blur-sm" onclick="closeModal()"></div>
+    <div class="relative bg-white rounded-3xl w-full max-w-2xl shadow-2xl max-h-[calc(100vh-2rem)] flex flex-col overflow-hidden">
+
+      <div class="sticky top-0 bg-azul-institucional px-8 py-6 flex items-center justify-between rounded-t-3xl z-10">
+        <div class="flex items-center gap-4">
+          <div class="w-10 h-10 bg-amarillo-progreso rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-azul-institucional" fill="currentColor" viewBox="0 0 24 24"><path d="M9.983 3v7.391c0 5.704-3.748 9.571-9 10.609L.995 19.848C3.427 18.931 4.99 16.21 4.99 14H1V3h8.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.995-2.152C16.573 17.931 18.136 15.21 18.136 13H14.017V3H24z"/></svg>
+          </div>
+          <div>
+            <p class="text-amarillo-progreso font-black text-xs uppercase tracking-widest mb-0.5">Mensaje personal</p>
+            <h3 id="modal-carta-title" class="text-white font-black text-lg leading-tight">Carta del Fundador</h3>
+          </div>
+        </div>
+        <button onclick="closeModal()" class="w-9 h-9 bg-white/15 hover:bg-white/25 rounded-xl flex items-center justify-center transition-colors flex-shrink-0" aria-label="Cerrar carta">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div id="modal-carta-body" class="px-8 py-8 space-y-4 text-gris-oscuro/80 font-medium leading-relaxed text-sm overflow-y-auto flex-1">
+
+        <p class="text-gris-oscuro/55 font-medium italic">Queridos peruanos,</p>
+
+        <p>Mi nombre es <strong class="font-black text-azul-institucional">Pepe Cordero</strong>. Soy esposo, padre de dos hijas, profesional peruano y, como millones de ustedes, alguien que sueña con un mejor futuro para nuestro país.</p>
+
+        <p>Nací y crecí en una familia de clase media trabajadora. Como muchas familias peruanas, aprendimos desde pequeños el valor del esfuerzo, del trabajo honesto y de salir adelante con sacrificio. Con el tiempo tuve la oportunidad de estudiar, trabajar en distintos países y liderar equipos internacionales en organizaciones globales. Y mientras más conocía el mundo, más convencido estaba de algo: el Perú tiene todo para convertirse en un país desarrollado.</p>
+
+        <div class="border-l-4 border-amarillo-progreso pl-5 my-2 space-y-1">
+          <p class="text-azul-institucional font-black text-base">Tenemos talento.</p>
+          <p class="text-azul-institucional font-black text-base">Tenemos recursos.</p>
+          <p class="text-azul-institucional font-black text-base">Tenemos gente trabajadora.</p>
+        </div>
+
+        <p>Lo que nos falta es dirección, instituciones sólidas y una política que piense más en el país que en sí misma.</p>
+
+        <p class="font-black text-azul-institucional text-base">Por eso nace Partido Central.</p>
+
+        <p>Este proyecto nace de una convicción simple pero profunda: el lugar donde naces no debería determinar tu futuro. Creemos en un Perú con igualdad de oportunidades, donde cada niño tenga acceso a nutrición, salud y educación de calidad desde el primer día de vida. Un Perú donde el esfuerzo vuelva a valer la pena.</p>
+
+        <p>También creemos en un Estado moderno, meritocrático y eficiente. Un país no cambia solo con discursos. Cambia con gestión, preparación y personas honestas ocupando los espacios de decisión.</p>
+
+        <p class="bg-azul-institucional/[0.06] border border-azul-institucional/15 rounded-xl px-5 py-4 text-azul-institucional font-medium italic">Quiero ser muy claro en algo: <strong class="font-black">este partido no se trata de mí.</strong></p>
+
+        <p>Partido Central no nace para servir a una persona, sino para construir un proyecto colectivo, serio y de largo plazo. Un espacio donde personas honestas, preparadas y comprometidas puedan trabajar juntas por el país que merecemos.</p>
+
+        <p>Este camino recién comienza y no será fácil. Pero estoy convencido de que todavía estamos a tiempo de cambiar el rumbo de nuestro país.</p>
+
+        <div class="space-y-1 text-gris-oscuro/65">
+          <p>Gracias por estar aquí.</p>
+          <p>Gracias por creer.</p>
+          <p>Y gracias por dar este primer paso junto a nosotros.</p>
+        </div>
+
+        <p class="font-medium italic text-gris-oscuro/60">Construyamos juntos el Perú que nuestros hijos merecen.</p>
+
+        <div class="pt-6 border-t border-gris-claro flex items-center gap-4">
+          <div class="w-10 h-10 bg-azul-institucional rounded-xl flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-black text-sm tracking-wide">PC</span>
+          </div>
+          <div>
+            <p class="text-azul-institucional font-black text-sm">Pepe Cordero</p>
+            <p class="text-gris-oscuro/50 text-xs font-medium">Líder Fundador · Partido Central</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <script>
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
@@ -367,6 +424,22 @@
         item.querySelector('.faq-icon').classList.remove('bg-gris-claro');
       }
     }
+
+    function openModal() {
+      const m = document.getElementById('modal-carta');
+      m.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeModal() {
+      const m = document.getElementById('modal-carta');
+      m.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
   </script>
   <script src="layout-loader.js"></script>
 </body>
