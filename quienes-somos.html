@@ -38,22 +38,70 @@
     <section id="quienes-somos" class="pt-8 pb-24 px-4 sm:px-6 lg:px-8 bg-white">
       <div class="max-w-7xl mx-auto">
 
-        <!-- Bloque introductorio -->
+        <!-- ── Carta del Fundador (bloque principal destacado) ── -->
+        <div class="grid lg:grid-cols-[400px_1fr] gap-8 xl:gap-12 items-stretch mb-20 reveal">
+
+          <!-- Foto del Fundador -->
+          <div class="relative rounded-3xl overflow-hidden bg-azul-institucional min-h-[340px] lg:min-h-full shadow-md">
+            <img src="assets/pepe-cordero.jpg" alt="Pepe Cordero, Líder Fundador del Partido Central"
+              class="absolute inset-0 w-full h-full object-cover object-top" onerror="this.style.display='none'" />
+            <div class="absolute inset-0 flex items-center justify-center text-white/15">
+              <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-azul-institucional via-azul-institucional/30 to-transparent pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <p class="text-white font-black text-lg leading-tight">Pepe Cordero</p>
+              <p class="text-amarillo-progreso text-xs font-bold uppercase tracking-widest">Líder Fundador</p>
+            </div>
+          </div>
+
+          <!-- Preview de la carta -->
+          <div class="rounded-3xl overflow-hidden shadow-sm border border-azul-institucional/15 flex flex-col">
+            <div class="bg-azul-institucional px-8 lg:px-10 py-6 flex items-center gap-4">
+              <div class="w-11 h-11 bg-amarillo-progreso rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-azul-institucional" fill="currentColor" viewBox="0 0 24 24"><path d="M9.983 3v7.391c0 5.704-3.748 9.571-9 10.609L.995 19.848C3.427 18.931 4.99 16.21 4.99 14H1V3h8.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.995-2.152C16.573 17.931 18.136 15.21 18.136 13H14.017V3H24z"/></svg>
+              </div>
+              <div>
+                <p class="text-amarillo-progreso font-black text-xs uppercase tracking-widest mb-0.5">Mensaje personal</p>
+                <h2 class="text-white font-black text-xl lg:text-2xl leading-tight">Carta del Fundador</h2>
+              </div>
+            </div>
+            <div class="bg-white px-8 lg:px-10 py-8 flex-1 flex flex-col">
+              <div class="relative flex-1">
+                <p class="text-gris-oscuro/55 font-medium italic text-sm mb-4">Queridos peruanos,</p>
+                <p class="text-gris-oscuro/80 font-medium leading-relaxed text-base mb-4">
+                  Mi nombre es <strong class="font-black text-azul-institucional">Pepe Cordero</strong>. Soy esposo, padre de dos hijas, profesional peruano y, como millones de ustedes, alguien que sueña con un mejor futuro para nuestro país.
+                </p>
+                <p class="text-gris-oscuro/80 font-medium leading-relaxed text-base">
+                  Nací y crecí en una familia de clase media trabajadora. Como muchas familias peruanas, aprendimos desde pequeños el valor del esfuerzo, del trabajo honesto y de salir adelante con sacrificio…
+                </p>
+                <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+              </div>
+              <div class="mt-6 pt-6 border-t border-gris-claro">
+                <button onclick="openModal()" class="inline-flex items-center gap-2 bg-azul-institucional hover:bg-azul-medio text-white font-black text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+                  Leer carta completa →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloque introductorio (secundario) -->
         <div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-start mb-20 reveal">
 
           <div>
             <p class="text-amarillo-progreso font-black text-sm uppercase tracking-widest mb-3">Nuestra Historia</p>
-            <h2 class="text-azul-institucional font-black leading-tight yellow-bar mb-6" style="font-size:clamp(2rem,4vw,3rem)">
-              Un ejecutivo que volvió<br/>para transformar<br/>su país.
+            <h2 class="text-azul-institucional font-black leading-tight yellow-bar mb-6" style="font-size:clamp(1.75rem,3.5vw,2.5rem)">
+              Un ejecutivo que volvió<br/>para transformar su país
             </h2>
             <p class="text-gris-oscuro font-medium leading-relaxed text-base mb-5">
-              La madre de <strong class="font-black text-azul-institucional">Pepe Cordero</strong> fue enfermera en el Hospital del Niño de Lima. Desde pequeño, él vio llegar a niños de todo el Perú —muchos de Chulucanas, su tierra piurana— desnutridos, con enfermedades prevenibles, sin acceso a lo más básico. Esa imagen no se olvida.
+              La madre de <strong class="font-black text-azul-institucional">Pepe Cordero</strong> fue enfermera en el Hospital del Niño de Lima. Desde pequeño, él vio llegar a niños de todo el Perú —muchos de Chulucanas, la tierra de su madre— con enfermedades prevenibles y sin acceso a lo más básico. Esa imagen nunca se olvida.
             </p>
             <p class="text-gris-oscuro/75 font-medium leading-relaxed text-base mb-5">
-              En lugar de resignarse, buscó las mejores herramientas disponibles. Estudió y trabajó en Suiza, construyó una carrera ejecutiva internacional en Estados Unidos y se formó en Harvard. No para quedarse afuera, sino para volver mejor preparado.
+              En lugar de resignarse, decidió prepararse. Construyó una carrera ejecutiva internacional liderando equipos y proyectos en Perú, México, Suiza y Estados Unidos, y complementa esa experiencia con formación en políticas públicas y gobierno en Harvard. No para quedarse afuera, sino para contribuir al Perú mejor preparado.
             </p>
             <p class="text-gris-oscuro/75 font-medium leading-relaxed text-base">
-              Regresó con una certeza: el Perú no necesita otro caudillo carismático. Necesita una institución seria, con cuadros técnicos, financiamiento transparente y un proyecto que trascienda a cualquier persona. Eso es el <strong class="font-black text-azul-institucional">Partido Central</strong>.
+              Con los años llegó a una certeza: el Perú no necesita otro caudillo carismático. Necesita una institución seria, con cuadros técnicos, financiamiento transparente y un proyecto que trascienda a cualquier persona. Eso es el <strong class="font-black text-azul-institucional">Partido Central</strong>.
             </p>
           </div>
 
@@ -100,7 +148,7 @@
               El Perú donde el origen no sea el destino
             </h2>
             <p class="text-gris-oscuro font-medium leading-relaxed text-base mb-4">
-              Nuestra visión se llama <strong class="font-black text-azul-institucional">Cancha Plana</strong>: que cada peruano, sin importar en qué provincia nació ni en qué familia creció, tenga acceso real a nutrición, salud y educación de calidad desde su primer día de vida.
+              Nuestra visión se llama <strong class="font-black text-azul-institucional">Cancha Plana</strong>: que cada peruano, sin importar dónde nació ni en qué familia creció, tenga acceso real a nutrición, salud y educación de calidad desde su primer día de vida.
             </p>
             <p class="text-gris-oscuro/75 font-medium leading-relaxed text-sm mb-6">
               No es un slogan. Es un compromiso estructural que requiere inversión agresiva, gestión técnica y un Estado que deje de ser cómplice de la desigualdad para convertirse en su solución.
@@ -112,7 +160,7 @@
               </li>
               <li class="flex items-start gap-3">
                 <span class="w-2 h-2 rounded-full bg-amarillo-progreso flex-shrink-0 mt-[0.4rem]"></span>
-                <span class="text-gris-oscuro font-medium text-sm leading-relaxed">Descentralización productiva real: más oportunidades, inversión y desarrollo para todas las regiones del Perú.</span>
+                <span class="text-gris-oscuro font-medium text-sm leading-relaxed">Descentralización productiva real: más oportunidades, inversión y desarrollo para todas las regiones del Perú</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="w-2 h-2 rounded-full bg-amarillo-progreso flex-shrink-0 mt-[0.4rem]"></span>
@@ -152,51 +200,6 @@
 
         </div>
 
-        <!-- ── Carta del Fundador (preview) ── -->
-        <div class="max-w-3xl mx-auto mb-20 reveal">
-          <div class="rounded-3xl overflow-hidden shadow-sm border border-azul-institucional/15">
-
-            <div class="bg-azul-institucional px-10 lg:px-14 py-8 flex items-center gap-5">
-              <div class="w-12 h-12 bg-amarillo-progreso rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-azul-institucional" fill="currentColor" viewBox="0 0 24 24"><path d="M9.983 3v7.391c0 5.704-3.748 9.571-9 10.609L.995 19.848C3.427 18.931 4.99 16.21 4.99 14H1V3h8.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.995-2.152C16.573 17.931 18.136 15.21 18.136 13H14.017V3H24z"/></svg>
-              </div>
-              <div>
-                <p class="text-amarillo-progreso font-black text-xs uppercase tracking-widest mb-0.5">Mensaje personal</p>
-                <h3 class="text-white font-black text-xl leading-tight">Carta del Fundador</h3>
-              </div>
-            </div>
-
-            <div class="bg-white px-10 lg:px-14 py-10">
-              <div class="relative">
-                <p class="text-gris-oscuro/55 font-medium italic text-sm mb-4">Queridos peruanos,</p>
-                <p class="text-gris-oscuro/80 font-medium leading-relaxed text-sm mb-4">
-                  Mi nombre es <strong class="font-black text-azul-institucional">Pepe Cordero</strong>. Soy esposo, padre de dos hijas, profesional peruano y, como millones de ustedes, alguien que sueña con un mejor futuro para nuestro país.
-                </p>
-                <p class="text-gris-oscuro/80 font-medium leading-relaxed text-sm">
-                  Nací y crecí en una familia de clase media trabajadora. Como muchas familias peruanas, aprendimos desde pequeños el valor del esfuerzo, del trabajo honesto y de salir adelante con sacrificio. Con el tiempo tuve la oportunidad de estudiar, trabajar en distintos países y liderar equipos internacionales…
-                </p>
-                <div class="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
-              </div>
-
-              <div class="mt-6 pt-6 border-t border-gris-claro flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 bg-azul-institucional rounded-xl flex items-center justify-center flex-shrink-0">
-                    <span class="text-white font-black text-sm tracking-wide">PC</span>
-                  </div>
-                  <div>
-                    <p class="text-azul-institucional font-black text-sm">Pepe Cordero</p>
-                    <p class="text-gris-oscuro/50 text-xs font-medium">Líder Fundador · Partido Central</p>
-                  </div>
-                </div>
-                <button onclick="openModal()" class="inline-flex items-center gap-2 bg-azul-institucional hover:bg-azul-medio text-white font-black text-sm px-6 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg flex-shrink-0">
-                  Leer carta completa →
-                </button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
         <!-- ── FAQ ── -->
         <div class="max-w-3xl mx-auto reveal">
           <div class="text-center mb-12">
@@ -219,10 +222,10 @@
               </button>
               <div class="faq-body hidden px-6 pb-6">
                 <p class="text-gris-oscuro font-medium leading-relaxed text-sm mb-3">
-                  Ninguna. Somos de <strong class="font-black text-azul-institucional">centro con visión social</strong>. Creemos en el mercado como el mejor motor de prosperidad conocido, pero con un Estado que invierte agresivamente donde el mercado no llega: la primera infancia, la salud básica y la seguridad.
+                  Ninguna. Somos un partido de <strong class="font-black text-azul-institucional">centro reformista</strong>. Creemos en la economía de mercado como el mejor motor para generar prosperidad, empleo y oportunidades. Pero también creemos en un Estado fuerte, moderno y eficaz, capaz de garantizar seguridad, educación de calidad, salud básica y una verdadera igualdad de oportunidades.
                 </p>
                 <p class="text-gris-oscuro font-medium leading-relaxed text-sm">
-                  No queremos expropiar empresas ni subsidiar el fracaso. Queremos que las reglas sean iguales para todos. Eso se llama <strong class="font-black text-azul-institucional">Cancha Plana</strong>, y no cabe en ninguna etiqueta ideológica del siglo pasado.
+                  Queremos que el futuro de cada peruano dependa de su esfuerzo y talento, no de sus contactos, su apellido o el lugar donde nació. A eso lo llamamos <strong class="font-black text-azul-institucional">Cancha Plana</strong>. Por eso no nos guiamos por ideologías ni dogmas. Nos guiamos por soluciones que funcionan.
                 </p>
               </div>
             </div>
@@ -238,10 +241,10 @@
               </button>
               <div class="faq-body hidden px-6 pb-6">
                 <p class="text-gris-oscuro font-medium leading-relaxed text-sm mb-3">
-                  No. Pepe Cordero es el fundador, pero el Partido Central fue diseñado explícitamente para <strong class="font-black text-azul-institucional">no depender de ninguna persona</strong>. Las decisiones se toman en colectivo, los estatutos garantizan renovación de liderazgos y el partido tiene estructuras regionales independientes.
+                  No. Pepe Cordero es el líder fundador, pero el Partido Central fue concebido para construir una institución, no un proyecto personal. Las decisiones se toman de manera colectiva, los estatutos promueven la renovación de liderazgos y la organización se sustenta en equipos y estructuras con representación nacional.
                 </p>
                 <p class="text-gris-oscuro font-medium leading-relaxed text-sm">
-                  El objetivo es construir una institución que trascienda a cualquier individuo. El Perú ya tiene demasiados partidos-caudillo. Este no será uno más.
+                  Nuestro objetivo es construir un partido que trascienda a sus fundadores y contribuya al país durante generaciones. El Perú necesita instituciones sólidas y duraderas, no organizaciones que dependan de una sola persona.
                 </p>
               </div>
             </div>
@@ -276,10 +279,10 @@
               </button>
               <div class="faq-body hidden px-6 pb-6">
                 <p class="text-gris-oscuro font-medium leading-relaxed text-sm mb-3">
-                  Es nuestra idea fuerza central. Significa que el lugar donde naces no debe determinar tu futuro. Hoy, un niño de una zona rural pobre tiene hasta cuatro veces menos probabilidades de desarrollar su potencial cognitivo que uno de Lima, simplemente por el código postal donde nació.
+                  Es nuestra idea fuerza central. Significa que el lugar donde naces no debe determinar tu futuro. Hoy, millones de peruanos comienzan la vida con desventajas que no eligieron: una educación de menor calidad, acceso limitado a servicios de salud o menos oportunidades para desarrollar su talento. No porque se esfuercen menos, sino porque no todos tienen acceso a las mismas oportunidades.
                 </p>
                 <p class="text-gris-oscuro font-medium leading-relaxed text-sm">
-                  La solución no es un bono ni un discurso: es <strong class="font-black text-azul-institucional">inversión agresiva y sostenida en nutrición, salud y educación desde el primer día de vida</strong>. Esa es nuestra apuesta de largo plazo, y es lo que distingue a este proyecto de todos los anteriores.
+                  Por eso creemos que la verdadera igualdad de oportunidades empieza desde la primera infancia. La mejor política social no es la que crea dependencia, sino la que desarrolla capacidades. Invertir en nutrición, salud y educación desde los primeros años de vida es la forma más efectiva de construir un Perú más justo, más competitivo y con más oportunidades para todos. A eso lo llamamos <strong class="font-black text-azul-institucional">Cancha Plana</strong>.
                 </p>
               </div>
             </div>
@@ -295,10 +298,29 @@
               </button>
               <div class="faq-body hidden px-6 pb-6">
                 <p class="text-gris-oscuro font-medium leading-relaxed text-sm mb-3">
-                  Sí. Pepe Cordero y el equipo fundador tienen décadas de experiencia en gestión ejecutiva en el sector privado internacional, organismos multilaterales y la academia. Sabemos cómo funcionan las instituciones desde adentro.
+                  Sí. El equipo fundador reúne experiencia en gestión pública, sector privado, academia y organismos internacionales. Son profesionales que han liderado equipos, administrado presupuestos, diseñado políticas, ejecutado proyectos y enfrentado problemas complejos tanto en el Perú como en el extranjero.
                 </p>
                 <p class="text-gris-oscuro font-medium leading-relaxed text-sm">
-                  No venimos a aprender en el cargo. Venimos a aplicar lo que ya sabemos funciona, con la humildad de quien conoce la diferencia entre gestionar y solo hablar de gestión.
+                  Creemos que el Perú necesita más capacidad de gestión y menos improvisación. Gobernar no es solo tener buenas intenciones; requiere formar equipos, ejecutar planes, medir resultados y rendir cuentas. Esa es la experiencia que queremos poner al servicio del país.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item border border-gris-claro rounded-2xl overflow-hidden transition-all duration-300 hover:border-azul-institucional/25 hover:shadow-sm">
+              <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4 group" onclick="toggleFaq(this)" aria-expanded="false">
+                <span class="text-azul-institucional font-black text-base leading-snug group-hover:text-azul-medio transition-colors">
+                  ¿Qué representa la "C" en el logo de Central?
+                </span>
+                <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full bg-gris-claro group-hover:bg-azul-institucional flex items-center justify-center transition-all duration-300">
+                  <svg class="w-4 h-4 text-azul-institucional group-hover:text-white transition-colors faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                </span>
+              </button>
+              <div class="faq-body hidden px-6 pb-6">
+                <p class="text-gris-oscuro font-medium leading-relaxed text-sm mb-3">
+                  La "C" de <strong class="font-black text-azul-institucional">Central</strong> es una circunferencia abierta: un partido que no se cierra sobre sí mismo, sino que deja espacio para sumar a todos los peruanos. Su forma representa el centro político —el punto de encuentro— y la apertura al diálogo y a las ideas que funcionan.
+                </p>
+                <p class="text-gris-oscuro font-medium leading-relaxed text-sm">
+                  El segmento amarillo es <strong class="font-black text-azul-institucional">la luz del centro</strong>: la chispa de progreso y esperanza que ilumina el camino. Es el recordatorio de que, incluso en medio de la incertidumbre, hay un punto de claridad que nos orienta hacia un Perú con igualdad de oportunidades.
                 </p>
               </div>
             </div>
