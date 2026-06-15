@@ -1,5 +1,14 @@
 (function () {
 
+  // ── 0. Favicon (fuente única — cambia la ruta aquí para todas las páginas) ─────
+  if (!document.querySelector('link[rel="icon"]')) {
+    const favicon = document.createElement('link');
+    favicon.rel = 'icon';
+    favicon.type = 'image/x-icon';
+    favicon.href = 'assets/Isotipo.ico';
+    document.head.appendChild(favicon);
+  }
+
   // ── 1. Shared CSS ────────────────────────────────────────────────────────────
   const style = document.createElement('style');
   style.textContent = `
