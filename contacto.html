@@ -347,10 +347,8 @@
         return;
       }
 
-      showToast('¡Recibido! Nos comunicaremos contigo en menos de 48 horas.');
-      form.reset();
-
-      // Notificación por correo (secundaria; no afecta al usuario si falla)
+      // Notificación por correo — debe ir ANTES de form.reset(), porque el reset
+      // borra el campo oculto donde hCaptcha guarda el token.
       if (window.enviarNotificacionEmail) {
         window.enviarNotificacionEmail('Nuevo mensaje de contacto — Partido Central', {
           Nombre:   datos.nombre,
@@ -362,6 +360,9 @@
           Mensaje:  datos.mensaje,
         });
       }
+
+      showToast('¡Recibido! Nos comunicaremos contigo en menos de 48 horas.');
+      form.reset();
     }
 
     const contactForm = document.getElementById('form-contacto');

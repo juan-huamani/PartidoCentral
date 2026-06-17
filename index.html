@@ -332,10 +332,8 @@
         return;
       }
 
-      showToast('¡Bienvenido! Nos comunicaremos contigo en menos de 48 horas.');
-      form.reset();
-
-      // Notificación por correo (secundaria; no afecta al usuario si falla)
+      // Notificación por correo — debe ir ANTES de form.reset(), porque el reset
+      // borra el campo oculto donde hCaptcha guarda el token.
       if (window.enviarNotificacionEmail) {
         window.enviarNotificacionEmail('Nuevo voluntario — Partido Central', {
           Nombre:   datos.nombre,
@@ -345,6 +343,9 @@
           Area:     datos.area || '—',
         });
       }
+
+      showToast('¡Bienvenido! Nos comunicaremos contigo en menos de 48 horas.');
+      form.reset();
     }
 
     const heroForm = document.getElementById('form-hero-unete');
