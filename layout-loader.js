@@ -9,6 +9,28 @@
     document.head.appendChild(favicon);
   }
 
+  // ── 0b. Web3Forms — notificación por correo (clave única para todo el sitio) ───
+  // Saca tu access key en https://web3forms.com (regístrala con contacto@partidocentral.pe).
+  const WEB3FORMS_ACCESS_KEY = '5574592d-337b-48ca-85a0-6cb758c278ff';
+  window.enviarNotificacionEmail = async function (asunto, datos) {
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: asunto,
+          from_name: 'Web Partido Central',
+          ...datos,
+        }),
+      });
+      return res.ok;
+    } catch (err) {
+      console.error('Web3Forms:', err);
+      return false;
+    }
+  };
+
   // ── 1. Shared CSS ────────────────────────────────────────────────────────────
   const style = document.createElement('style');
   style.textContent = `
@@ -23,6 +45,17 @@
     #mobile-menu.closed { transform: translateX(100%); opacity: 0; pointer-events: none; }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+    .dev-credit { position: relative; display: inline-flex; }
+    .dev-credit::after {
+      content: attr(data-tip);
+      position: absolute; bottom: calc(100% + 8px); right: 0;
+      white-space: nowrap; background: #fff; color: #0D2B5C;
+      font-size: 11px; font-weight: 700; padding: 6px 10px; border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      opacity: 0; transform: translateY(4px); pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .dev-credit:hover::after { opacity: 1; transform: translateY(0); }
   `;
   document.head.appendChild(style);
 
@@ -117,9 +150,9 @@
   // ── 6. Footer HTML ────────────────────────────────────────────────────────────
   const footerHTML = `
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-y-8 gap-x-6">
 
-        <div class="space-y-3">
+        <div class="space-y-3 col-span-2 md:col-span-1">
           <div class="flex items-center gap-2.5">
             ${footerLogoSVG}
             <div>
@@ -166,6 +199,9 @@
           <p class="text-white/40 text-xs font-medium text-center sm:text-right">
             © 2026 Partido Central. Todos los derechos reservados.
           </p>
+          <a href="https://www.linkedin.com/in/juanhuamani/" target="_blank" rel="noopener" class="dev-credit" data-tip="Desarrollado por Juan Huamani" aria-label="Desarrollado por Juan Huamani">
+            <span class="w-7 h-7 rounded-full bg-white/10 hover:bg-amarillo-progreso text-white/55 hover:text-azul-institucional text-[10px] font-black tracking-tight flex items-center justify-center transition-all duration-300">JH</span>
+          </a>
         </div>
       </div>
     </div>

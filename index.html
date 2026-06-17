@@ -88,28 +88,60 @@
           <div class="animate-fade-up lg:self-start" style="animation-delay:0.18s">
             <div class="bg-white rounded-3xl p-6 shadow-2xl">
               <form class="space-y-3.5" onsubmit="handleHeroForm(event)" novalidate id="form-hero-unete">
+                <!-- Honeypot anti-spam (oculto; no llenar) -->
+                <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                  <input type="text" id="h-website" name="website" tabindex="-1" autocomplete="off" />
+                </div>
                 <div>
                   <label for="h-nombre" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Nombre completo <span class="text-red-500">*</span></label>
-                  <input id="h-nombre" type="text" placeholder="Ej. María García Ríos" required minlength="3"
+                  <input id="h-nombre" type="text" placeholder="Ej. María García Ríos" required minlength="3" maxlength="100"
                     class="w-full border-2 border-gris-claro rounded-xl px-4 py-3 text-sm font-medium text-gris-oscuro transition-colors bg-white hover:border-gris-medio focus:border-azul-institucional" />
                 </div>
                 <div>
                   <label for="h-email" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Correo electrónico <span class="text-red-500">*</span></label>
-                  <input id="h-email" type="email" placeholder="tucorreo@ejemplo.com" required
+                  <input id="h-email" type="email" placeholder="tucorreo@ejemplo.com" required maxlength="150"
                     class="w-full border-2 border-gris-claro rounded-xl px-4 py-3 text-sm font-medium text-gris-oscuro transition-colors bg-white hover:border-gris-medio focus:border-azul-institucional" />
                 </div>
                 <div>
                   <label for="h-tel" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Teléfono / WhatsApp <span class="text-red-500">*</span></label>
                   <div class="flex gap-2">
                     <span class="flex-shrink-0 border-2 border-gris-claro rounded-xl px-3 py-3 text-sm font-bold text-gris-oscuro bg-gris-claro/50 select-none">+51</span>
-                    <input id="h-tel" type="tel" placeholder="999 888 777" required pattern="[0-9\s\-]{7,15}"
+                    <input id="h-tel" type="tel" inputmode="numeric" maxlength="9" placeholder="999 888 777" required
+                      oninput="this.value = this.value.replace(/\D/g, '').slice(0, 9)"
                       class="flex-1 border-2 border-gris-claro rounded-xl px-4 py-3 text-sm font-medium text-gris-oscuro transition-colors bg-white hover:border-gris-medio focus:border-azul-institucional" />
                   </div>
                 </div>
                 <div>
-                  <label for="h-ciudad" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Ciudad / Distrito <span class="text-red-500">*</span></label>
-                  <input id="h-ciudad" type="text" placeholder="Ej. Lima, Miraflores" required
-                    class="w-full border-2 border-gris-claro rounded-xl px-4 py-3 text-sm font-medium text-gris-oscuro transition-colors bg-white hover:border-gris-medio focus:border-azul-institucional" />
+                  <label for="h-region" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Región <span class="text-red-500">*</span></label>
+                  <select id="h-region" required
+                    class="w-full border-2 border-gris-claro rounded-xl px-4 py-3 text-sm font-medium text-gris-oscuro transition-colors bg-white hover:border-gris-medio focus:border-azul-institucional">
+                    <option value="">Selecciona tu región…</option>
+                    <option>Amazonas</option>
+                    <option>Áncash</option>
+                    <option>Apurímac</option>
+                    <option>Arequipa</option>
+                    <option>Ayacucho</option>
+                    <option>Cajamarca</option>
+                    <option>Callao</option>
+                    <option>Cusco</option>
+                    <option>Huancavelica</option>
+                    <option>Huánuco</option>
+                    <option>Ica</option>
+                    <option>Junín</option>
+                    <option>La Libertad</option>
+                    <option>Lambayeque</option>
+                    <option>Lima</option>
+                    <option>Loreto</option>
+                    <option>Madre de Dios</option>
+                    <option>Moquegua</option>
+                    <option>Pasco</option>
+                    <option>Piura</option>
+                    <option>Puno</option>
+                    <option>San Martín</option>
+                    <option>Tacna</option>
+                    <option>Tumbes</option>
+                    <option>Ucayali</option>
+                  </select>
                 </div>
                 <div>
                   <label for="h-area" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Área de interés</label>
@@ -224,11 +256,90 @@
       setTimeout(() => { t.style.transform = 'translateY(96px)'; t.style.opacity = '0'; }, 3800);
     }
 
-    function handleHeroForm(e) {
-      e.preventDefault();
-      showToast('¡Bienvenido! Nos comunicaremos contigo en menos de 48 horas.');
-      e.target.reset();
+    // ── Helpers de validación ──
+    const emailValido = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+    const soloDigitos = v => v.replace(/\D/g, '');
+    function marcarError(el, msg) {
+      el.classList.remove('border-gris-claro');
+      el.classList.add('border-red-500');
+      el.focus();
+      showToast(msg);
+      return false;
     }
+    function marcarOk(el) {
+      el.classList.remove('border-red-500');
+      el.classList.add('border-gris-claro');
+    }
+
+    async function handleHeroForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
+      const textoOriginal = btn.textContent;
+
+      // Honeypot: si está lleno, es un bot. Fingimos éxito sin guardar.
+      if (document.getElementById('h-website').value) {
+        showToast('¡Bienvenido! Nos comunicaremos contigo en menos de 48 horas.');
+        form.reset();
+        return;
+      }
+
+      // ── Validación ──
+      const nombre = document.getElementById('h-nombre');
+      const email  = document.getElementById('h-email');
+      const tel    = document.getElementById('h-tel');
+      const region = document.getElementById('h-region');
+      [nombre, email, tel, region].forEach(marcarOk);
+
+      if (nombre.value.trim().length < 3)        return marcarError(nombre, 'Ingresa tu nombre completo.');
+      if (!emailValido(email.value))             return marcarError(email,  'Ingresa un correo electrónico válido.');
+      if (soloDigitos(tel.value).length !== 9)   return marcarError(tel,    'Ingresa un celular válido de 9 dígitos.');
+      if (!region.value)                         return marcarError(region, 'Selecciona tu región.');
+
+      if (!window.sb) {
+        showToast('No se pudo conectar. Revisa tu conexión e inténtalo de nuevo.');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+
+      const datos = {
+        nombre:   document.getElementById('h-nombre').value.trim(),
+        email:    document.getElementById('h-email').value.trim(),
+        telefono: '+51 ' + document.getElementById('h-tel').value.trim(),
+        region:   document.getElementById('h-region').value,
+        area:     document.getElementById('h-area').value || null,
+      };
+
+      const { error } = await window.sb.from('voluntarios').insert([datos]);
+
+      btn.disabled = false;
+      btn.textContent = textoOriginal;
+
+      if (error) {
+        console.error('Supabase:', error);
+        showToast('Hubo un problema al enviar. Inténtalo de nuevo.');
+        return;
+      }
+
+      showToast('¡Bienvenido! Nos comunicaremos contigo en menos de 48 horas.');
+      form.reset();
+
+      // Notificación por correo (secundaria; no afecta al usuario si falla)
+      if (window.enviarNotificacionEmail) {
+        window.enviarNotificacionEmail('Nuevo voluntario — Partido Central', {
+          Nombre:   datos.nombre,
+          Email:    datos.email,
+          Telefono: datos.telefono,
+          Region:   datos.region,
+          Area:     datos.area || '—',
+        });
+      }
+    }
+
+    const heroForm = document.getElementById('form-hero-unete');
+    if (heroForm) heroForm.addEventListener('input', e => marcarOk(e.target));
 
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
@@ -242,6 +353,8 @@
       });
     });
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-client.js"></script>
   <script src="layout-loader.js"></script>
 </body>
 </html>

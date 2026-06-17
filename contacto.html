@@ -69,16 +69,21 @@
 
             <form id="form-contacto" class="space-y-5" onsubmit="handleContactForm(event)" novalidate>
 
+              <!-- Honeypot anti-spam (oculto; no llenar) -->
+              <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                <input type="text" id="c-website" name="website" tabindex="-1" autocomplete="off" />
+              </div>
+
               <!-- Nombre + Email -->
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label for="c-nombre" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Nombre completo <span class="text-red-500">*</span></label>
-                  <input id="c-nombre" type="text" placeholder="Ej. Carlos Flores" required
+                  <input id="c-nombre" type="text" placeholder="Ej. Carlos Flores" required minlength="3" maxlength="100"
                     class="w-full border border-gris-claro rounded-xl px-4 py-3.5 text-sm font-medium text-gris-oscuro transition-colors bg-gris-claro/20 hover:border-gris-medio focus:border-azul-institucional" />
                 </div>
                 <div>
                   <label for="c-email" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Correo electrónico <span class="text-red-500">*</span></label>
-                  <input id="c-email" type="email" placeholder="tucorreo@ejemplo.com" required
+                  <input id="c-email" type="email" placeholder="tucorreo@ejemplo.com" required maxlength="150"
                     class="w-full border border-gris-claro rounded-xl px-4 py-3.5 text-sm font-medium text-gris-oscuro transition-colors bg-gris-claro/20 hover:border-gris-medio focus:border-azul-institucional" />
                 </div>
               </div>
@@ -87,18 +92,39 @@
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label for="c-tel" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Teléfono</label>
-                  <input id="c-tel" type="tel" placeholder="+51 999 888 777"
+                  <input id="c-tel" type="tel" inputmode="numeric" maxlength="9" placeholder="999 888 777"
+                    oninput="this.value = this.value.replace(/\D/g, '').slice(0, 9)"
                     class="w-full border border-gris-claro rounded-xl px-4 py-3.5 text-sm font-medium text-gris-oscuro transition-colors bg-gris-claro/20 hover:border-gris-medio focus:border-azul-institucional" />
                 </div>
                 <div>
                   <label for="c-region" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Región</label>
                   <select id="c-region" class="w-full border border-gris-claro rounded-xl px-4 py-3.5 text-sm font-medium text-gris-oscuro transition-colors bg-gris-claro/20 hover:border-gris-medio focus:border-azul-institucional">
                     <option value="">Selecciona tu región…</option>
-                    <option>Lima</option><option>Arequipa</option><option>Cusco</option>
-                    <option>Piura</option><option>La Libertad</option><option>Lambayeque</option>
-                    <option>Junín</option><option>Loreto</option><option>Callao</option>
-                    <option>Ica</option><option>Ancash</option><option>Cajamarca</option>
-                    <option>Puno</option><option>Tacna</option><option>Otra región</option>
+                    <option>Amazonas</option>
+                    <option>Áncash</option>
+                    <option>Apurímac</option>
+                    <option>Arequipa</option>
+                    <option>Ayacucho</option>
+                    <option>Cajamarca</option>
+                    <option>Callao</option>
+                    <option>Cusco</option>
+                    <option>Huancavelica</option>
+                    <option>Huánuco</option>
+                    <option>Ica</option>
+                    <option>Junín</option>
+                    <option>La Libertad</option>
+                    <option>Lambayeque</option>
+                    <option>Lima</option>
+                    <option>Loreto</option>
+                    <option>Madre de Dios</option>
+                    <option>Moquegua</option>
+                    <option>Pasco</option>
+                    <option>Piura</option>
+                    <option>Puno</option>
+                    <option>San Martín</option>
+                    <option>Tacna</option>
+                    <option>Tumbes</option>
+                    <option>Ucayali</option>
                   </select>
                 </div>
               </div>
@@ -121,14 +147,14 @@
               <!-- Asunto -->
               <div>
                 <label for="c-asunto" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Asunto</label>
-                <input id="c-asunto" type="text" placeholder="Resumen breve de tu mensaje"
+                <input id="c-asunto" type="text" placeholder="Resumen breve de tu mensaje" maxlength="200"
                   class="w-full border border-gris-claro rounded-xl px-4 py-3.5 text-sm font-medium text-gris-oscuro transition-colors bg-gris-claro/20 hover:border-gris-medio focus:border-azul-institucional" />
               </div>
 
               <!-- Mensaje -->
               <div>
                 <label for="c-mensaje" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Mensaje <span class="text-red-500">*</span></label>
-                <textarea id="c-mensaje" rows="6" placeholder="Escribe tu mensaje aquí. Mientras más detallado, mejor podremos ayudarte." required
+                <textarea id="c-mensaje" rows="6" placeholder="Escribe tu mensaje aquí. Mientras más detallado, mejor podremos ayudarte." required minlength="10" maxlength="2000"
                   class="w-full border border-gris-claro rounded-xl px-4 py-3.5 text-sm font-medium text-gris-oscuro transition-colors bg-gris-claro/20 hover:border-gris-medio focus:border-azul-institucional resize-none"></textarea>
               </div>
 
@@ -234,11 +260,103 @@
       setTimeout(() => { t.style.transform = 'translateY(96px)'; t.style.opacity = '0'; }, 3800);
     }
 
-    function handleContactForm(e) {
-      e.preventDefault();
-      showToast('¡Recibido! Nos comunicaremos contigo en menos de 48 horas.');
-      e.target.reset();
+    // ── Helpers de validación ──
+    const emailValido = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+    const soloDigitos = v => v.replace(/\D/g, '');
+    function marcarError(el, msg) {
+      el.classList.remove('border-gris-claro');
+      el.classList.add('border-red-500');
+      el.focus();
+      showToast(msg);
+      return false;
     }
+    function marcarOk(el) {
+      el.classList.remove('border-red-500');
+      el.classList.add('border-gris-claro');
+    }
+
+    async function handleContactForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
+      const textoOriginal = btn.textContent;
+
+      // Honeypot: si está lleno, es un bot. Fingimos éxito sin guardar.
+      if (document.getElementById('c-website').value) {
+        showToast('¡Recibido! Nos comunicaremos contigo en menos de 48 horas.');
+        form.reset();
+        return;
+      }
+
+      // ── Validación ──
+      const nombre = document.getElementById('c-nombre');
+      const email  = document.getElementById('c-email');
+      const tel    = document.getElementById('c-tel');
+      const perfil = document.getElementById('c-motivo');
+      const mensaje = document.getElementById('c-mensaje');
+      const privacidad = document.getElementById('c-privacidad');
+      [nombre, email, tel, perfil, mensaje].forEach(marcarOk);
+
+      if (nombre.value.trim().length < 3)   return marcarError(nombre, 'Ingresa tu nombre completo.');
+      if (!emailValido(email.value))        return marcarError(email,  'Ingresa un correo electrónico válido.');
+      if (tel.value.trim() && (soloDigitos(tel.value).length < 6 || soloDigitos(tel.value).length > 15))
+                                            return marcarError(tel,    'Ingresa un teléfono válido o déjalo vacío.');
+      if (!perfil.value)                    return marcarError(perfil, 'Selecciona cómo quieres participar.');
+      if (mensaje.value.trim().length < 10) return marcarError(mensaje, 'Tu mensaje debe tener al menos 10 caracteres.');
+      if (!privacidad.checked) {
+        privacidad.focus();
+        showToast('Debes aceptar la Política de Privacidad para continuar.');
+        return;
+      }
+
+      if (!window.sb) {
+        showToast('No se pudo conectar. Revisa tu conexión e inténtalo de nuevo.');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
+
+      const datos = {
+        nombre:   document.getElementById('c-nombre').value.trim(),
+        email:    document.getElementById('c-email').value.trim(),
+        telefono: document.getElementById('c-tel').value.trim() || null,
+        region:   document.getElementById('c-region').value || null,
+        perfil:   document.getElementById('c-motivo').value,
+        asunto:   document.getElementById('c-asunto').value.trim() || null,
+        mensaje:  document.getElementById('c-mensaje').value.trim(),
+      };
+
+      const { error } = await window.sb.from('mensajes_contacto').insert([datos]);
+
+      btn.disabled = false;
+      btn.textContent = textoOriginal;
+
+      if (error) {
+        console.error('Supabase:', error);
+        showToast('Hubo un problema al enviar. Inténtalo de nuevo.');
+        return;
+      }
+
+      showToast('¡Recibido! Nos comunicaremos contigo en menos de 48 horas.');
+      form.reset();
+
+      // Notificación por correo (secundaria; no afecta al usuario si falla)
+      if (window.enviarNotificacionEmail) {
+        window.enviarNotificacionEmail('Nuevo mensaje de contacto — Partido Central', {
+          Nombre:   datos.nombre,
+          Email:    datos.email,
+          Telefono: datos.telefono || '—',
+          Region:   datos.region || '—',
+          Perfil:   datos.perfil,
+          Asunto:   datos.asunto || '—',
+          Mensaje:  datos.mensaje,
+        });
+      }
+    }
+
+    const contactForm = document.getElementById('form-contacto');
+    if (contactForm) contactForm.addEventListener('input', e => marcarOk(e.target));
 
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
@@ -252,6 +370,8 @@
       });
     });
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-client.js"></script>
   <script src="layout-loader.js"></script>
 </body>
 </html>
