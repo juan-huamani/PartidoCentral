@@ -13,6 +13,7 @@
   // Saca tu access key en https://web3forms.com (regístrala con contacto@partidocentral.pe).
   const WEB3FORMS_ACCESS_KEY = '5574592d-337b-48ca-85a0-6cb758c278ff';
   window.enviarNotificacionEmail = async function (asunto, datos) {
+    const tokenEl = document.querySelector('[name="h-captcha-response"]');
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -21,9 +22,11 @@
           access_key: WEB3FORMS_ACCESS_KEY,
           subject: asunto,
           from_name: 'Web Partido Central',
+          'h-captcha-response': tokenEl ? tokenEl.value : '',
           ...datos,
         }),
       });
+      if (window.hcaptcha) { try { hcaptcha.reset(); } catch (e) {} }
       return res.ok;
     } catch (err) {
       console.error('Web3Forms:', err);
@@ -61,17 +64,22 @@
 
   // ── 2. Active page detection ──────────────────────────────────────────────────
   const currentFile = window.location.pathname.split('/').pop() || 'index.html';
-  const volunteerHref = currentFile === 'index.html' ? '#hero' : 'index.html#hero';
+  const isHome = currentFile === 'index.html' || currentFile === '';
+  const volunteerHref = isHome ? '#hero' : '/#hero';
+
+  // Un enlace está "activo" si apunta al archivo actual. El inicio ('/') se
+  // considera activo cuando estamos en la raíz o en index.html.
+  const esActivo = href => (href === '/' ? isHome : currentFile === href);
 
   // ── 3. Nav link helpers ───────────────────────────────────────────────────────
   function navLink(href, label) {
-    return currentFile === href
+    return esActivo(href)
       ? `<a href="${href}" class="text-amarillo-progreso bg-white/10 px-4 py-2 rounded-md text-sm font-semibold tracking-wide">${label}</a>`
       : `<a href="${href}" class="text-white/80 hover:text-white hover:bg-white/10 px-4 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors duration-200">${label}</a>`;
   }
 
   function mobileNavLink(href, label) {
-    return currentFile === href
+    return esActivo(href)
       ? `<a href="${href}" class="text-amarillo-progreso text-xl font-bold py-3 border-b border-white/10">${label}</a>`
       : `<a href="${href}" class="text-white text-xl font-bold py-3 border-b border-white/10 hover:text-amarillo-progreso transition-colors">${label}</a>`;
   }
@@ -102,7 +110,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 lg:h-20">
 
-        <a href="index.html" class="flex items-center gap-3 group">
+        <a href="/" class="flex items-center gap-3 group">
           ${logoSVG}
           <div class="flex flex-col leading-none">
             <span class="text-white font-black text-xl lg:text-2xl tracking-widest">CENTRAL</span>
@@ -111,7 +119,7 @@
         </a>
 
         <nav class="hidden lg:flex items-center gap-1" aria-label="Navegación principal">
-          ${navLink('index.html', 'Inicio')}
+          ${navLink('/', 'Inicio')}
           ${navLink('quienes-somos.html', 'Quiénes Somos')}
           ${navLink('propuestas.html', 'Pilares de Gobierno')}
           ${navLink('contacto.html', 'Contacto')}
@@ -136,7 +144,7 @@
   // on .header-scrolled cannot create a containing block and clip the overlay.
   const mobileMenuHTML = `
     <div id="mobile-menu" class="closed lg:hidden fixed inset-0 h-screen w-screen bg-azul-institucional z-50 flex flex-col pt-16 lg:pt-20 px-6 pb-6 gap-2 overflow-y-auto">
-      ${mobileNavLink('index.html', 'Inicio')}
+      ${mobileNavLink('/', 'Inicio')}
       ${mobileNavLink('quienes-somos.html', 'Quiénes Somos')}
       ${mobileNavLink('propuestas.html', 'Pilares de Gobierno')}
       ${mobileNavLink('contacto.html', 'Contacto')}
@@ -166,7 +174,7 @@
         <div>
           <h4 class="text-white font-bold text-xs uppercase tracking-widest mb-3">Navegación</h4>
           <ul class="space-y-2">
-            <li><a href="index.html" class="text-white/50 hover:text-amarillo-progreso text-xs font-medium transition-colors">Inicio</a></li>
+            <li><a href="/" class="text-white/50 hover:text-amarillo-progreso text-xs font-medium transition-colors">Inicio</a></li>
             <li><a href="quienes-somos.html" class="text-white/50 hover:text-amarillo-progreso text-xs font-medium transition-colors">Quiénes Somos</a></li>
             <li><a href="propuestas.html" class="text-white/50 hover:text-amarillo-progreso text-xs font-medium transition-colors">Pilares de Gobierno</a></li>
             <li><a href="contacto.html" class="text-white/50 hover:text-amarillo-progreso text-xs font-medium transition-colors">Contacto</a></li>
@@ -176,7 +184,7 @@
         <div>
           <h4 class="text-white font-bold text-xs uppercase tracking-widest mb-3">Únete y Apoya</h4>
           <ul class="space-y-2">
-            <li><a href="index.html#form-hero-unete" class="text-white/50 hover:text-amarillo-progreso text-xs font-medium transition-colors">¡Únete!</a></li>
+            <li><a href="/#form-hero-unete" class="text-white/50 hover:text-amarillo-progreso text-xs font-medium transition-colors">¡Únete!</a></li>
             <li><a href="propuestas.html#donar" class="text-white/50 hover:text-amarillo-progreso text-xs font-medium transition-colors">Hacer una Donación</a></li>
           </ul>
         </div>

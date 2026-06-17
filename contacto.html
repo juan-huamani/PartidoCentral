@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 
   <style>
     .yellow-bar::before { content: ''; display: block; width: 3rem; height: 4px; background: #F2C200; margin-bottom: 1rem; border-radius: 2px; }
@@ -166,6 +167,8 @@
                 </label>
               </div>
 
+              <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
+
               <button type="submit"
                 class="w-full sm:w-auto bg-azul-institucional hover:bg-azul-medio text-white font-black text-base px-12 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
                 Enviar mensaje →
@@ -306,6 +309,12 @@
       if (!privacidad.checked) {
         privacidad.focus();
         showToast('Debes aceptar la Política de Privacidad para continuar.');
+        return;
+      }
+
+      const captcha = document.querySelector('[name="h-captcha-response"]');
+      if (!captcha || !captcha.value) {
+        showToast('Completa el captcha "No soy un robot" para continuar.');
         return;
       }
 

@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 
   <style>
     input:focus, select:focus { outline: 2px solid #F2C200; outline-offset: 2px; }
@@ -155,6 +156,8 @@
                     <option>Otra área</option>
                   </select>
                 </div>
+                <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"></div>
+
                 <button type="submit"
                   class="w-full bg-amarillo-progreso hover:bg-amarillo-hover text-azul-institucional font-black text-base tracking-wide py-3 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl btn-cta-pulse mt-1 uppercase">
                   QUIERO UNIRME
@@ -295,6 +298,12 @@
       if (!emailValido(email.value))             return marcarError(email,  'Ingresa un correo electrónico válido.');
       if (soloDigitos(tel.value).length !== 9)   return marcarError(tel,    'Ingresa un celular válido de 9 dígitos.');
       if (!region.value)                         return marcarError(region, 'Selecciona tu región.');
+
+      const captcha = document.querySelector('[name="h-captcha-response"]');
+      if (!captcha || !captcha.value) {
+        showToast('Completa el captcha "No soy un robot" para continuar.');
+        return;
+      }
 
       if (!window.sb) {
         showToast('No se pudo conectar. Revisa tu conexión e inténtalo de nuevo.');
