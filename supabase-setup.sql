@@ -70,3 +70,15 @@ alter table public.mensajes_contacto
   add constraint mensajes_perfil_len   check (char_length(perfil)   <= 100),
   add constraint mensajes_asunto_len   check (char_length(asunto)   <= 200),
   add constraint mensajes_mensaje_len  check (char_length(mensaje)  <= 2000);
+
+
+-- ════════════════════════════════════════════════════════════════════════
+-- PANEL ADMIN (panel.html): permitir que usuarios AUTENTICADOS lean los datos.
+-- El público 'anon' sigue SIN poder leer (solo insertar). Solo quien inicie
+-- sesión con el usuario creado en Authentication podrá ver los registros.
+-- ════════════════════════════════════════════════════════════════════════
+create policy "auth puede leer voluntarios"
+  on public.voluntarios for select to authenticated using (true);
+
+create policy "auth puede leer mensajes"
+  on public.mensajes_contacto for select to authenticated using (true);

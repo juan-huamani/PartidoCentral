@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Panel — Partido Central</title>
+  <link rel="icon" type="image/x-icon" href="assets/Isotipo.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
+  <style>
+    * { font-family: 'Montserrat', sans-serif; }
+    .tab-activo { background:#0D2B5C; color:#fff; }
+    table { border-collapse: collapse; }
+  </style>
+</head>
+<body class="bg-gris-claro/40 text-gris-oscuro min-h-screen">
+
+  <!-- ═══════════════════════════════════════════
+       VISTA LOGIN
+  ═══════════════════════════════════════════ -->
+  <div id="login-view" class="hidden min-h-screen flex items-center justify-center px-4">
+    <div class="w-full max-w-sm bg-white rounded-3xl shadow-2xl p-8">
+      <div class="text-center mb-8">
+        <p class="text-azul-institucional font-black text-2xl tracking-widest">CENTRAL</p>
+        <p class="text-gris-oscuro/50 text-xs font-bold uppercase tracking-[0.25em] mt-1">Panel administrativo</p>
+      </div>
+
+      <form id="login-form" class="space-y-4">
+        <div>
+          <label for="login-email" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Correo</label>
+          <input id="login-email" type="email" required autocomplete="username"
+            class="w-full border-2 border-gris-claro rounded-xl px-4 py-3 text-sm font-medium text-gris-oscuro bg-white focus:border-azul-institucional outline-none transition-colors" />
+        </div>
+        <div>
+          <label for="login-pass" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Contraseña</label>
+          <input id="login-pass" type="password" required autocomplete="current-password"
+            class="w-full border-2 border-gris-claro rounded-xl px-4 py-3 text-sm font-medium text-gris-oscuro bg-white focus:border-azul-institucional outline-none transition-colors" />
+        </div>
+        <p id="login-error" class="hidden text-red-500 text-xs font-bold"></p>
+        <button id="login-btn" type="submit"
+          class="w-full bg-azul-institucional hover:bg-azul-medio text-white font-black text-sm py-3.5 rounded-xl transition-all duration-300">
+          Iniciar sesión
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       VISTA DASHBOARD
+  ═══════════════════════════════════════════ -->
+  <div id="dash-view" class="hidden">
+
+    <!-- Top bar -->
+    <header class="bg-azul-institucional text-white sticky top-0 z-10 shadow-md">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <svg class="w-8 h-8 flex-shrink-0" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Logo Partido Central">
+            <path d="M69.44 57.00 A34 34 0 0 1 51.63 71.95 L47.18 59.73 A21 21 0 0 0 58.19 50.50 Z" fill="white"/>
+            <path d="M49.94 72.51 A34 34 0 0 1 26.72 71.30 L31.79 59.33 A21 21 0 0 0 46.14 60.08 Z" fill="white"/>
+            <path d="M25.10 70.56 A34 34 0 0 1 8.94 53.83 L20.82 48.54 A21 21 0 0 0 30.79 58.87 Z" fill="white"/>
+            <path d="M8.26 52.18 A34 34 0 0 1 7.85 28.93 L20.14 33.16 A21 21 0 0 0 20.39 47.53 Z" fill="#F2C200"/>
+            <path d="M8.48 27.26 A34 34 0 0 1 24.04 9.98 L30.14 21.46 A21 21 0 0 0 20.53 32.13 Z" fill="white"/>
+            <path d="M25.63 9.19 A34 34 0 0 1 48.80 7.16 L45.44 19.72 A21 21 0 0 0 31.13 20.97 Z" fill="white"/>
+            <path d="M50.51 7.66 A34 34 0 0 1 68.83 21.98 L57.81 28.87 A21 21 0 0 0 46.49 20.03 Z" fill="white"/>
+          </svg>
+          <p class="font-black text-lg tracking-widest">CENTRAL</p>
+          <span class="text-white/30">·</span>
+          <p class="text-white/60 text-xs font-bold uppercase tracking-widest hidden sm:block">Panel</p>
+        </div>
+        <div class="flex items-center gap-4">
+          <span id="user-email" class="text-white/60 text-xs font-medium hidden sm:block"></span>
+          <button id="logout-btn" class="bg-white/10 hover:bg-white/20 text-white text-xs font-black px-4 py-2 rounded-lg transition-colors">Cerrar sesión</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+      <!-- Stats + acciones -->
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div class="flex gap-4">
+          <div class="bg-white rounded-2xl px-5 py-3 shadow-sm border border-gris-claro">
+            <p class="text-azul-institucional text-2xl font-black leading-none" id="stat-vol">—</p>
+            <p class="text-gris-oscuro/50 text-xs font-bold uppercase tracking-wide mt-1">Voluntarios</p>
+          </div>
+          <div class="bg-white rounded-2xl px-5 py-3 shadow-sm border border-gris-claro">
+            <p class="text-azul-institucional text-2xl font-black leading-none" id="stat-msg">—</p>
+            <p class="text-gris-oscuro/50 text-xs font-bold uppercase tracking-wide mt-1">Mensajes</p>
+          </div>
+        </div>
+        <button id="refresh-btn" class="bg-amarillo-progreso hover:bg-amarillo-hover text-azul-institucional text-xs font-black px-5 py-2.5 rounded-xl transition-colors">
+          ↻ Actualizar
+        </button>
+      </div>
+
+      <!-- Tabs -->
+      <div class="flex gap-2 mb-4">
+        <button data-tab="vol" class="tab-btn tab-activo text-xs font-black px-4 py-2 rounded-lg transition-colors">Voluntarios</button>
+        <button data-tab="msg" class="tab-btn bg-white text-gris-oscoro text-xs font-black px-4 py-2 rounded-lg border border-gris-claro transition-colors">Mensajes de contacto</button>
+      </div>
+
+      <!-- Tabla Voluntarios -->
+      <section id="tab-vol" class="bg-white rounded-2xl shadow-sm border border-gris-claro overflow-hidden">
+        <div class="px-5 py-3 border-b border-gris-claro flex flex-wrap items-center justify-between gap-3">
+          <h2 class="text-azul-institucional font-black text-sm">Voluntarios</h2>
+          <div class="flex items-center gap-2 flex-wrap">
+            <input id="search-vol" type="search" placeholder="Buscar…" class="border border-gris-claro rounded-lg px-3 py-1.5 text-xs font-medium text-gris-oscuro w-44 focus:border-azul-institucional outline-none" />
+            <select id="perpage-vol" class="border border-gris-claro rounded-lg px-2 py-1.5 text-xs font-bold text-gris-oscuro focus:border-azul-institucional outline-none">
+              <option value="10">10</option><option value="25">25</option><option value="50">50</option>
+            </select>
+            <button id="csv-vol" class="text-azul-institucional hover:text-amarillo-hover text-xs font-black transition-colors">Exportar CSV ↓</button>
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-gris-claro/40 text-gris-oscuro/60 text-xs uppercase tracking-wide">
+              <tr>
+                <th class="text-left font-black px-4 py-3">Fecha</th>
+                <th class="text-left font-black px-4 py-3">Nombre</th>
+                <th class="text-left font-black px-4 py-3">Correo</th>
+                <th class="text-left font-black px-4 py-3">Teléfono</th>
+                <th class="text-left font-black px-4 py-3">Región</th>
+                <th class="text-left font-black px-4 py-3">Área</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-vol" class="divide-y divide-gris-claro"></tbody>
+          </table>
+        </div>
+        <p id="empty-vol" class="hidden text-center text-gris-oscuro/40 text-sm font-medium py-10">Sin registros todavía.</p>
+        <div id="pag-vol" class="items-center justify-between px-5 py-3 border-t border-gris-claro text-xs" style="display:none">
+          <span id="info-vol" class="text-gris-oscuro/50 font-medium"></span>
+          <div class="flex items-center gap-2">
+            <button id="prev-vol" class="px-3 py-1.5 rounded-lg border border-gris-claro font-black text-gris-oscuro hover:bg-gris-claro/40 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">◀</button>
+            <span id="pagelabel-vol" class="text-gris-oscuro/60 font-bold"></span>
+            <button id="next-vol" class="px-3 py-1.5 rounded-lg border border-gris-claro font-black text-gris-oscuro hover:bg-gris-claro/40 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">▶</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tabla Mensajes -->
+      <section id="tab-msg" class="hidden bg-white rounded-2xl shadow-sm border border-gris-claro overflow-hidden">
+        <div class="px-5 py-3 border-b border-gris-claro flex flex-wrap items-center justify-between gap-3">
+          <h2 class="text-azul-institucional font-black text-sm">Mensajes de contacto</h2>
+          <div class="flex items-center gap-2 flex-wrap">
+            <input id="search-msg" type="search" placeholder="Buscar…" class="border border-gris-claro rounded-lg px-3 py-1.5 text-xs font-medium text-gris-oscuro w-44 focus:border-azul-institucional outline-none" />
+            <select id="perpage-msg" class="border border-gris-claro rounded-lg px-2 py-1.5 text-xs font-bold text-gris-oscuro focus:border-azul-institucional outline-none">
+              <option value="10">10</option><option value="25">25</option><option value="50">50</option>
+            </select>
+            <button id="csv-msg" class="text-azul-institucional hover:text-amarillo-hover text-xs font-black transition-colors">Exportar CSV ↓</button>
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-gris-claro/40 text-gris-oscuro/60 text-xs uppercase tracking-wide">
+              <tr>
+                <th class="text-left font-black px-4 py-3">Fecha</th>
+                <th class="text-left font-black px-4 py-3">Nombre</th>
+                <th class="text-left font-black px-4 py-3">Correo</th>
+                <th class="text-left font-black px-4 py-3">Teléfono</th>
+                <th class="text-left font-black px-4 py-3">Región</th>
+                <th class="text-left font-black px-4 py-3">Perfil</th>
+                <th class="text-left font-black px-4 py-3">Asunto</th>
+                <th class="text-left font-black px-4 py-3">Mensaje</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-msg" class="divide-y divide-gris-claro"></tbody>
+          </table>
+        </div>
+        <p id="empty-msg" class="hidden text-center text-gris-oscuro/40 text-sm font-medium py-10">Sin registros todavía.</p>
+        <div id="pag-msg" class="items-center justify-between px-5 py-3 border-t border-gris-claro text-xs" style="display:none">
+          <span id="info-msg" class="text-gris-oscuro/50 font-medium"></span>
+          <div class="flex items-center gap-2">
+            <button id="prev-msg" class="px-3 py-1.5 rounded-lg border border-gris-claro font-black text-gris-oscuro hover:bg-gris-claro/40 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">◀</button>
+            <span id="pagelabel-msg" class="text-gris-oscuro/60 font-bold"></span>
+            <button id="next-msg" class="px-3 py-1.5 rounded-lg border border-gris-claro font-black text-gris-oscuro hover:bg-gris-claro/40 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">▶</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-client.js"></script>
+  <script>
+    const sb = window.sb;
+
+    const loginView = document.getElementById('login-view');
+    const dashView  = document.getElementById('dash-view');
+
+    // Escapa HTML para evitar XSS al mostrar datos enviados por el público.
+    const esc = v => String(v ?? '').replace(/[&<>"']/g, c =>
+      ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+
+    const fecha = v => v ? new Date(v).toLocaleString('es-PE', { dateStyle: 'short', timeStyle: 'short' }) : '—';
+
+    // ── Sesión ──
+    async function init() {
+      const { data: { session } } = await sb.auth.getSession();
+      if (session) mostrarDashboard(session); else mostrarLogin();
+    }
+
+    function mostrarLogin() {
+      dashView.classList.add('hidden');
+      loginView.classList.remove('hidden');
+    }
+
+    async function mostrarDashboard(session) {
+      loginView.classList.add('hidden');
+      dashView.classList.remove('hidden');
+      document.getElementById('user-email').textContent = session.user.email;
+      await cargarDatos();
+    }
+
+    // ── Login ──
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('login-btn');
+      const err = document.getElementById('login-error');
+      err.classList.add('hidden');
+      btn.disabled = true; btn.textContent = 'Ingresando…';
+
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-pass').value;
+      const { data, error } = await sb.auth.signInWithPassword({ email, password });
+
+      btn.disabled = false; btn.textContent = 'Iniciar sesión';
+      if (error) {
+        err.textContent = 'Correo o contraseña incorrectos.';
+        err.classList.remove('hidden');
+        return;
+      }
+      mostrarDashboard(data.session);
+    });
+
+    // ── Logout ──
+    document.getElementById('logout-btn').addEventListener('click', async () => {
+      await sb.auth.signOut();
+      document.getElementById('login-pass').value = '';
+      mostrarLogin();
+    });
+
+    // ── Cargar datos ──
+    let datosVol = [], datosMsg = [];
+
+    async function cargarDatos() {
+      const [{ data: vols }, { data: msgs }] = await Promise.all([
+        sb.from('voluntarios').select('*').order('created_at', { ascending: false }),
+        sb.from('mensajes_contacto').select('*').order('created_at', { ascending: false }),
+      ]);
+      datosVol = vols || [];
+      datosMsg = msgs || [];
+
+      document.getElementById('stat-vol').textContent = datosVol.length;
+      document.getElementById('stat-msg').textContent = datosMsg.length;
+
+      tablaVol.render();
+      tablaMsg.render();
+    }
+
+    // ── Plantillas de fila ──
+    const rowVol = r => `
+        <tr class="hover:bg-gris-claro/30">
+          <td class="px-4 py-3 text-gris-oscuro/60 whitespace-nowrap">${esc(fecha(r.created_at))}</td>
+          <td class="px-4 py-3 font-bold text-azul-institucional">${esc(r.nombre)}</td>
+          <td class="px-4 py-3">${esc(r.email)}</td>
+          <td class="px-4 py-3 whitespace-nowrap">${esc(r.telefono)}</td>
+          <td class="px-4 py-3">${esc(r.region)}</td>
+          <td class="px-4 py-3 text-gris-oscuro/70">${esc(r.area)}</td>
+        </tr>`;
+
+    const rowMsg = r => `
+        <tr class="hover:bg-gris-claro/30 align-top">
+          <td class="px-4 py-3 text-gris-oscuro/60 whitespace-nowrap">${esc(fecha(r.created_at))}</td>
+          <td class="px-4 py-3 font-bold text-azul-institucional">${esc(r.nombre)}</td>
+          <td class="px-4 py-3">${esc(r.email)}</td>
+          <td class="px-4 py-3 whitespace-nowrap">${esc(r.telefono)}</td>
+          <td class="px-4 py-3">${esc(r.region)}</td>
+          <td class="px-4 py-3 text-gris-oscuro/70 text-xs">${esc(r.perfil)}</td>
+          <td class="px-4 py-3">${esc(r.asunto)}</td>
+          <td class="px-4 py-3 text-gris-oscuro/70 max-w-xs">${esc(r.mensaje)}</td>
+        </tr>`;
+
+    // ── Controlador de tabla: búsqueda + paginación (10/25/50) ──
+    function crearTabla({ getDatos, campos, renderRow, ids }) {
+      let termino = '', porPagina = 10, pagina = 1;
+
+      const filtrar = () => {
+        const d = getDatos();
+        if (!termino) return d;
+        const t = termino.toLowerCase();
+        return d.filter(r => campos.some(c => String(r[c] ?? '').toLowerCase().includes(t)));
+      };
+
+      function render() {
+        const rows = filtrar();
+        const total = rows.length;
+        const totalPag = Math.max(1, Math.ceil(total / porPagina));
+        if (pagina > totalPag) pagina = totalPag;
+        if (pagina < 1) pagina = 1;
+        const inicio = (pagina - 1) * porPagina;
+
+        document.getElementById(ids.tbody).innerHTML = rows.slice(inicio, inicio + porPagina).map(renderRow).join('');
+
+        const emptyEl = document.getElementById(ids.empty);
+        emptyEl.textContent = termino ? 'Sin resultados para tu búsqueda.' : 'Sin registros todavía.';
+        emptyEl.classList.toggle('hidden', total > 0);
+
+        document.getElementById(ids.info).textContent = total
+          ? `${inicio + 1}–${Math.min(inicio + porPagina, total)} de ${total}` : '';
+        document.getElementById(ids.pageLabel).textContent = `Pág. ${pagina}/${totalPag}`;
+        document.getElementById(ids.prev).disabled = pagina <= 1;
+        document.getElementById(ids.next).disabled = pagina >= totalPag;
+        document.getElementById(ids.pag).style.display = total ? 'flex' : 'none';
+      }
+
+      document.getElementById(ids.search).addEventListener('input', e => { termino = e.target.value.trim(); pagina = 1; render(); });
+      document.getElementById(ids.perPage).addEventListener('change', e => { porPagina = +e.target.value; pagina = 1; render(); });
+      document.getElementById(ids.prev).addEventListener('click', () => { pagina--; render(); });
+      document.getElementById(ids.next).addEventListener('click', () => { pagina++; render(); });
+
+      return { render };
+    }
+
+    const tablaVol = crearTabla({
+      getDatos: () => datosVol,
+      campos: ['nombre', 'email', 'telefono', 'region', 'area'],
+      renderRow: rowVol,
+      ids: { tbody: 'tbody-vol', empty: 'empty-vol', info: 'info-vol', pageLabel: 'pagelabel-vol',
+             prev: 'prev-vol', next: 'next-vol', pag: 'pag-vol', search: 'search-vol', perPage: 'perpage-vol' },
+    });
+
+    const tablaMsg = crearTabla({
+      getDatos: () => datosMsg,
+      campos: ['nombre', 'email', 'telefono', 'region', 'perfil', 'asunto', 'mensaje'],
+      renderRow: rowMsg,
+      ids: { tbody: 'tbody-msg', empty: 'empty-msg', info: 'info-msg', pageLabel: 'pagelabel-msg',
+             prev: 'prev-msg', next: 'next-msg', pag: 'pag-msg', search: 'search-msg', perPage: 'perpage-msg' },
+    });
+
+    // ── Tabs ──
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.dataset.tab;
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          b.classList.toggle('tab-activo', b === btn);
+          b.classList.toggle('bg-white', b !== btn);
+          b.classList.toggle('border', b !== btn);
+          b.classList.toggle('border-gris-claro', b !== btn);
+        });
+        document.getElementById('tab-vol').classList.toggle('hidden', tab !== 'vol');
+        document.getElementById('tab-msg').classList.toggle('hidden', tab !== 'msg');
+      });
+    });
+
+    // ── Refrescar ──
+    document.getElementById('refresh-btn').addEventListener('click', cargarDatos);
+
+    // ── Export CSV ──
+    function exportarCSV(filas, columnas, archivo) {
+      const cab = columnas.map(c => c.label).join(',');
+      const lineas = filas.map(r => columnas.map(c =>
+        `"${String(c.get ? c.get(r) : (r[c.key] ?? '')).replace(/"/g, '""')}"`).join(','));
+      const csv = [cab, ...lineas].join('\n');
+      const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = archivo;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
+    document.getElementById('csv-vol').addEventListener('click', () => exportarCSV(datosVol, [
+      { label: 'Fecha', get: r => fecha(r.created_at) },
+      { label: 'Nombre', key: 'nombre' }, { label: 'Correo', key: 'email' },
+      { label: 'Telefono', key: 'telefono' }, { label: 'Region', key: 'region' },
+      { label: 'Area', key: 'area' },
+    ], 'voluntarios.csv'));
+
+    document.getElementById('csv-msg').addEventListener('click', () => exportarCSV(datosMsg, [
+      { label: 'Fecha', get: r => fecha(r.created_at) },
+      { label: 'Nombre', key: 'nombre' }, { label: 'Correo', key: 'email' },
+      { label: 'Telefono', key: 'telefono' }, { label: 'Region', key: 'region' },
+      { label: 'Perfil', key: 'perfil' }, { label: 'Asunto', key: 'asunto' },
+      { label: 'Mensaje', key: 'mensaje' },
+    ], 'mensajes-contacto.csv'));
+
+    init();
+  </script>
+</body>
+</html>
