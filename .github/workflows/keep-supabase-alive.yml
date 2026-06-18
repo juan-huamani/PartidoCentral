@@ -1,0 +1,27 @@
+name: Keep Supabase Alive
+
+# Mantiene activo el proyecto de Supabase (el free tier se pausa tras ~7 días
+# de inactividad). Hacemos un GET liviano a la tabla "voluntarios" cada 3 días.
+
+on:
+  schedule:
+    # Aprox. cada 3 días a las 06:00 UTC (días 1,4,7,…,28,31 de cada mes).
+    - cron: '0 6 */3 * *'
+  workflow_dispatch:   # permite ejecutarlo a mano desde la pestaña "Actions"
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping a Supabase (tabla voluntarios)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          echo "Haciendo ping a Supabase…"
+          curl --fail --silent --show-error --max-time 30 \
+            "${SUPABASE_URL}/rest/v1/voluntarios?select=id&limit=1" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}"
+          echo ""
+          echo "✅ Ping correcto: Supabase sigue activo."
