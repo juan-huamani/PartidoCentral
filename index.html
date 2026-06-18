@@ -10,8 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@29.1.0/dist/css/intlTelInput.css" />
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@29.1.0/dist/js/intlTelInput.min.js"></script>
 
   <style>
+    .iti { width: 100%; }
     input:focus, select:focus { outline: 2px solid #F2C200; outline-offset: 2px; }
     .marquee { overflow: hidden; white-space: nowrap; }
     .marquee-inner { display: inline-block; animation: marquee 28s linear infinite; }
@@ -105,12 +108,8 @@
                 </div>
                 <div>
                   <label for="h-tel" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Teléfono / WhatsApp <span class="text-red-500">*</span></label>
-                  <div class="flex gap-2">
-                    <span class="flex-shrink-0 border-2 border-gris-claro rounded-xl px-3 py-3 text-sm font-bold text-gris-oscuro bg-gris-claro/50 select-none">+51</span>
-                    <input id="h-tel" type="tel" inputmode="numeric" maxlength="9" placeholder="999 888 777" required
-                      oninput="this.value = this.value.replace(/\D/g, '').slice(0, 9)"
-                      class="flex-1 border-2 border-gris-claro rounded-xl px-4 py-3 text-sm font-medium text-gris-oscuro transition-colors bg-white hover:border-gris-medio focus:border-azul-institucional" />
-                  </div>
+                  <input id="h-tel" type="tel" inputmode="tel" required
+                    class="w-full border-2 border-gris-claro rounded-xl px-4 py-3 text-sm font-medium text-gris-oscuro transition-colors bg-white hover:border-gris-medio focus:border-azul-institucional" />
                 </div>
                 <div>
                   <label for="h-region" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Región <span class="text-red-500">*</span></label>
@@ -274,6 +273,16 @@
       el.classList.add('border-gris-claro');
     }
 
+    // ── Selector de prefijo internacional (intl-tel-input) ──
+    const itiTel = window.intlTelInput(document.getElementById('h-tel'), {
+      initialCountry: 'pe',
+      separateDialCode: true,
+      strictMode: true,
+      countryOrder: ['pe', 'us', 'es', 'cl', 'ar', 'it'],
+      excludeCountries: ['ba', 'cf'],
+      loadUtils: () => import('https://cdn.jsdelivr.net/npm/intl-tel-input@29.1.0/dist/js/utils.js'),
+    });
+
     async function handleHeroForm(e) {
       e.preventDefault();
       const form = e.target;
@@ -296,7 +305,8 @@
 
       if (nombre.value.trim().length < 3)        return marcarError(nombre, 'Ingresa tu nombre completo.');
       if (!emailValido(email.value))             return marcarError(email,  'Ingresa un correo electrónico válido.');
-      if (soloDigitos(tel.value).length !== 9)   return marcarError(tel,    'Ingresa un celular válido de 9 dígitos.');
+      if (!itiTel.getNumber())                   return marcarError(tel,    'Ingresa tu número de teléfono.');
+      if (itiTel.isValidNumber() === false)      return marcarError(tel,    'Ingresa un número de teléfono válido.');
       if (!region.value)                         return marcarError(region, 'Selecciona tu región.');
 
       const captcha = document.querySelector('[name="h-captcha-response"]');
@@ -316,7 +326,7 @@
       const datos = {
         nombre:   document.getElementById('h-nombre').value.trim(),
         email:    document.getElementById('h-email').value.trim(),
-        telefono: '+51 ' + document.getElementById('h-tel').value.trim(),
+        telefono: itiTel.getNumber(),
         region:   document.getElementById('h-region').value,
         area:     document.getElementById('h-area').value || null,
       };

@@ -10,8 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet" />
   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@29.1.0/dist/css/intlTelInput.css" />
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@29.1.0/dist/js/intlTelInput.min.js"></script>
 
   <style>
+    .iti { width: 100%; }
     .yellow-bar::before { content: ''; display: block; width: 3rem; height: 4px; background: #F2C200; margin-bottom: 1rem; border-radius: 2px; }
     input:focus, select:focus, textarea:focus { outline: 2px solid #F2C200; outline-offset: 2px; }
     .info-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(13,43,92,0.10); }
@@ -93,8 +96,7 @@
               <div class="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label for="c-tel" class="block text-xs font-black text-gris-oscuro mb-1.5 uppercase tracking-wide">Teléfono</label>
-                  <input id="c-tel" type="tel" inputmode="numeric" maxlength="9" placeholder="999 888 777"
-                    oninput="this.value = this.value.replace(/\D/g, '').slice(0, 9)"
+                  <input id="c-tel" type="tel" inputmode="tel"
                     class="w-full border border-gris-claro rounded-xl px-4 py-3.5 text-sm font-medium text-gris-oscuro transition-colors bg-gris-claro/20 hover:border-gris-medio focus:border-azul-institucional" />
                 </div>
                 <div>
@@ -278,6 +280,16 @@
       el.classList.add('border-gris-claro');
     }
 
+    // ── Selector de prefijo internacional (intl-tel-input) ──
+    const itiTel = window.intlTelInput(document.getElementById('c-tel'), {
+      initialCountry: 'pe',
+      separateDialCode: true,
+      strictMode: true,
+      countryOrder: ['pe', 'us', 'es', 'cl', 'ar', 'it'],
+      excludeCountries: ['ba', 'cf'],
+      loadUtils: () => import('https://cdn.jsdelivr.net/npm/intl-tel-input@29.1.0/dist/js/utils.js'),
+    });
+
     async function handleContactForm(e) {
       e.preventDefault();
       const form = e.target;
@@ -302,7 +314,7 @@
 
       if (nombre.value.trim().length < 3)   return marcarError(nombre, 'Ingresa tu nombre completo.');
       if (!emailValido(email.value))        return marcarError(email,  'Ingresa un correo electrónico válido.');
-      if (tel.value.trim() && (soloDigitos(tel.value).length < 6 || soloDigitos(tel.value).length > 15))
+      if (tel.value.trim() && itiTel.isValidNumber() === false)
                                             return marcarError(tel,    'Ingresa un teléfono válido o déjalo vacío.');
       if (!perfil.value)                    return marcarError(perfil, 'Selecciona cómo quieres participar.');
       if (mensaje.value.trim().length < 10) return marcarError(mensaje, 'Tu mensaje debe tener al menos 10 caracteres.');
@@ -329,7 +341,7 @@
       const datos = {
         nombre:   document.getElementById('c-nombre').value.trim(),
         email:    document.getElementById('c-email').value.trim(),
-        telefono: document.getElementById('c-tel').value.trim() || null,
+        telefono: itiTel.getNumber() || null,
         region:   document.getElementById('c-region').value || null,
         perfil:   document.getElementById('c-motivo').value,
         asunto:   document.getElementById('c-asunto').value.trim() || null,
