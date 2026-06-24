@@ -1,0 +1,10 @@
+{
+  "name": "partido-central",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio web del Partido Central",
+  "scripts": {
+    "build:css": "npx tailwindcss@3 -i ./tailwind-input.css -o ./styles.css --minify",
+    "watch:css": "npx tailwindcss@3 -i ./tailwind-input.css -o ./styles.css --watch"
+  }
+}
