@@ -1,14 +1,5 @@
 (function () {
 
-  // ── 0. Favicon (fuente única — cambia la ruta aquí para todas las páginas) ─────
-  if (!document.querySelector('link[rel="icon"]')) {
-    const favicon = document.createElement('link');
-    favicon.rel = 'icon';
-    favicon.type = 'image/x-icon';
-    favicon.href = 'assets/Isotipo.ico';
-    document.head.appendChild(favicon);
-  }
-
   // ── 0b. Web3Forms — notificación por correo (clave única para todo el sitio) ───
   // Saca tu access key en https://web3forms.com (regístrala con contacto@partidocentral.pe).
   const WEB3FORMS_ACCESS_KEY = '5574592d-337b-48ca-85a0-6cb758c278ff';
