@@ -16,7 +16,7 @@
     .faq-chevron { transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
     .faq-body { animation: fadeDown 0.25s ease; }
     @keyframes fadeDown { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:translateY(0); } }
-    #modal-carta:not(.hidden) { animation: modalIn 0.25s ease; }
+    #modal-carta:not(.hidden) { display: grid; place-items: center; animation: modalIn 0.25s ease; }
     @keyframes modalIn { from { opacity:0; } to { opacity:1; } }
     #modal-carta:not(.hidden) > div:last-child { animation: modalSlide 0.25s ease; }
     @keyframes modalSlide { from { opacity:0; transform:translateY(12px) scale(0.98); } to { opacity:1; transform:translateY(0) scale(1); } }
@@ -344,7 +344,7 @@
   <footer id="global-footer" class="bg-azul-institucional text-white border-t border-white/10"></footer>
 
   <!-- ── Modal: Carta del Fundador ── -->
-  <div id="modal-carta" class="hidden fixed inset-0 z-[100] grid place-items-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-carta-title">
+  <div id="modal-carta" class="hidden fixed inset-0 z-[100] p-4" role="dialog" aria-modal="true" aria-labelledby="modal-carta-title">
     <div class="absolute inset-0 bg-azul-institucional/75 backdrop-blur-sm" onclick="closeModal()"></div>
     <div class="relative bg-white rounded-3xl w-full max-w-2xl shadow-2xl max-h-[calc(100vh-2rem)] flex flex-col overflow-hidden">
 
