@@ -39,103 +39,6 @@
     <section id="quienes-somos" class="pt-8 pb-24 px-4 sm:px-6 lg:px-8 bg-white">
       <div class="max-w-7xl mx-auto">
 
-        <!-- ── Carta del Fundador (bloque principal destacado) ── -->
-        <div class="grid lg:grid-cols-[400px_1fr] gap-8 xl:gap-12 items-stretch mb-20 reveal">
-
-          <!-- Foto del Fundador -->
-          <div class="relative rounded-3xl overflow-hidden bg-azul-institucional min-h-[340px] lg:min-h-full shadow-md">
-            <img src="assets/pepe-cordero.jpg" alt="Pepe Cordero, Líder Fundador del Partido Central"
-              class="absolute inset-0 w-full h-full object-cover object-top" onerror="this.style.display='none'" />
-            <div class="absolute inset-0 bg-gradient-to-t from-azul-institucional/90 via-azul-institucional/10 to-transparent pointer-events-none"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-6">
-              <p class="text-white font-black text-lg leading-tight">Pepe Cordero</p>
-              <p class="text-amarillo-progreso text-xs font-bold uppercase tracking-widest">Líder Fundador</p>
-            </div>
-          </div>
-
-          <!-- Preview de la carta -->
-          <div class="rounded-3xl overflow-hidden shadow-sm border border-azul-institucional/15 flex flex-col">
-            <div class="bg-azul-institucional px-8 lg:px-10 py-6 flex items-center gap-4">
-              <div class="w-11 h-11 bg-amarillo-progreso rounded-xl flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-azul-institucional" fill="currentColor" viewBox="0 0 24 24"><path d="M9.983 3v7.391c0 5.704-3.748 9.571-9 10.609L.995 19.848C3.427 18.931 4.99 16.21 4.99 14H1V3h8.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.995-2.152C16.573 17.931 18.136 15.21 18.136 13H14.017V3H24z"/></svg>
-              </div>
-              <div>
-                <p class="text-amarillo-progreso font-black text-xs uppercase tracking-widest mb-0.5">Mensaje personal</p>
-                <h2 class="text-white font-black text-xl lg:text-2xl leading-tight">Carta del Fundador</h2>
-              </div>
-            </div>
-            <div class="bg-white px-8 lg:px-10 py-8 flex-1 flex flex-col">
-              <div class="relative flex-1">
-                <p class="text-gris-oscuro/55 font-medium italic text-sm mb-4">Queridos peruanos,</p>
-                <p class="text-gris-oscuro/80 font-medium leading-relaxed text-base mb-4">
-                  Mi nombre es <strong class="font-black text-azul-institucional">Pepe Cordero</strong>. Soy esposo, padre de dos hijas, profesional peruano y, como millones de ustedes, alguien que sueña con un mejor futuro para nuestro país.
-                </p>
-                <p class="text-gris-oscuro/80 font-medium leading-relaxed text-base">
-                  Nací y crecí en una familia de clase media trabajadora. Como muchas familias peruanas, aprendimos desde pequeños el valor del esfuerzo, del trabajo honesto y de salir adelante con sacrificio…
-                </p>
-                <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
-              </div>
-              <div class="mt-6 pt-6 border-t border-gris-claro">
-                <button onclick="openModal()" class="inline-flex items-center gap-2 bg-azul-institucional hover:bg-azul-medio text-white font-black text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
-                  Leer carta completa →
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bloque introductorio (secundario) -->
-        <div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-start mb-20 reveal">
-
-          <div>
-            <p class="text-amarillo-progreso font-black text-sm uppercase tracking-widest mb-3">Nuestra Historia</p>
-            <h2 class="text-azul-institucional font-black leading-tight yellow-bar mb-6" style="font-size:clamp(1.75rem,3.5vw,2.5rem)">
-              Un ejecutivo que volvió<br/>para transformar su país
-            </h2>
-            <p class="text-gris-oscuro font-medium leading-relaxed text-base mb-5">
-              La madre de <strong class="font-black text-azul-institucional">Pepe Cordero</strong> fue enfermera en el Hospital del Niño de Lima. Desde pequeño, él vio llegar a niños de todo el Perú —muchos de Chulucanas, la tierra de su madre— con enfermedades prevenibles y sin acceso a lo más básico. Esa imagen nunca se olvida.
-            </p>
-            <p class="text-gris-oscuro/75 font-medium leading-relaxed text-base mb-5">
-              En lugar de resignarse, decidió prepararse. Construyó una carrera ejecutiva internacional liderando equipos y proyectos en Perú, México, Suiza y Estados Unidos, y complementa esa experiencia con formación en políticas públicas y gobierno en Harvard. No para quedarse afuera, sino para contribuir al Perú mejor preparado.
-            </p>
-            <p class="text-gris-oscuro/75 font-medium leading-relaxed text-base">
-              Con los años llegó a una certeza: el Perú no necesita otro caudillo carismático. Necesita una institución seria, con cuadros técnicos, financiamiento transparente y un proyecto que trascienda a cualquier persona. Eso es el <strong class="font-black text-azul-institucional">Partido Central</strong>.
-            </p>
-          </div>
-
-          <!-- Tarjetas de valores -->
-          <div class="grid grid-cols-2 gap-4 lg:pt-4">
-            <div class="bg-azul-institucional rounded-2xl p-6">
-              <div class="w-11 h-11 bg-amarillo-progreso rounded-xl flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-azul-institucional" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-              </div>
-              <h4 class="text-white font-black text-base mb-1">Honestidad</h4>
-              <p class="text-white/60 font-medium text-xs leading-relaxed">Cero tolerancia a la corrupción y al clientelismo, en todo nivel.</p>
-            </div>
-            <div class="bg-gris-claro/60 rounded-2xl p-6 border border-gris-claro">
-              <div class="w-11 h-11 bg-azul-institucional rounded-xl flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-              </div>
-              <h4 class="text-azul-institucional font-black text-base mb-1">Meritocracia</h4>
-              <p class="text-gris-oscuro/65 font-medium text-xs leading-relaxed">Los mejores peruanos al servicio del Estado, sin importar apellidos.</p>
-            </div>
-            <div class="bg-gris-claro/60 rounded-2xl p-6 border border-gris-claro">
-              <div class="w-11 h-11 bg-azul-institucional rounded-xl flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              </div>
-              <h4 class="text-azul-institucional font-black text-base mb-1">Cancha Plana</h4>
-              <p class="text-gris-oscuro/65 font-medium text-xs leading-relaxed">Que el lugar donde naces no determine tu futuro. Inversión real en primera infancia.</p>
-            </div>
-            <div class="bg-azul-institucional rounded-2xl p-6">
-              <div class="w-11 h-11 bg-amarillo-progreso rounded-xl flex items-center justify-center mb-4">
-                <svg class="w-6 h-6 text-azul-institucional" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-              </div>
-              <h4 class="text-white font-black text-base mb-1">Transparencia</h4>
-              <p class="text-white/60 font-medium text-xs leading-relaxed">Finanzas auditables, origen de fondos verificable y rendición de cuentas a los ciudadanos.</p>
-            </div>
-          </div>
-        </div>
-
         <!-- ── Visión de País y Filosofía ── -->
         <div class="grid lg:grid-cols-2 rounded-3xl overflow-hidden mb-20 reveal shadow-md">
 
@@ -196,6 +99,89 @@
             </ul>
           </div>
 
+        </div>
+
+        <!-- ── Carta del Fundador ── -->
+        <div class="grid lg:grid-cols-[400px_1fr] gap-8 xl:gap-12 items-stretch mb-20 reveal">
+
+          <!-- Foto del Fundador -->
+          <div class="relative rounded-3xl overflow-hidden bg-azul-institucional min-h-[340px] lg:min-h-full shadow-md">
+            <img src="assets/pepe-cordero.jpg" alt="Pepe Cordero, Líder Fundador del Partido Central"
+              class="absolute inset-0 w-full h-full object-cover object-top" onerror="this.style.display='none'" />
+            <div class="absolute inset-0 bg-gradient-to-t from-azul-institucional/90 via-azul-institucional/10 to-transparent pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <p class="text-white font-black text-lg leading-tight">Pepe Cordero</p>
+              <p class="text-amarillo-progreso text-xs font-bold uppercase tracking-widest">Líder Fundador</p>
+            </div>
+          </div>
+
+          <!-- Preview de la carta -->
+          <div class="rounded-3xl overflow-hidden shadow-sm border border-azul-institucional/15 flex flex-col">
+            <div class="bg-azul-institucional px-8 lg:px-10 py-6 flex items-center gap-4">
+              <div class="w-11 h-11 bg-amarillo-progreso rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-azul-institucional" fill="currentColor" viewBox="0 0 24 24"><path d="M9.983 3v7.391c0 5.704-3.748 9.571-9 10.609L.995 19.848C3.427 18.931 4.99 16.21 4.99 14H1V3h8.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.995-2.152C16.573 17.931 18.136 15.21 18.136 13H14.017V3H24z"/></svg>
+              </div>
+              <div>
+                <p class="text-amarillo-progreso font-black text-xs uppercase tracking-widest mb-0.5">Mensaje personal</p>
+                <h2 class="text-white font-black text-xl lg:text-2xl leading-tight">Carta del Fundador</h2>
+              </div>
+            </div>
+            <div class="bg-white px-8 lg:px-10 py-8 flex-1 flex flex-col">
+              <div class="relative flex-1">
+                <p class="text-gris-oscuro/55 font-medium italic text-sm mb-4">Queridos peruanos,</p>
+                <p class="text-gris-oscuro/80 font-medium leading-relaxed text-base mb-4">
+                  Mi nombre es <strong class="font-black text-azul-institucional">Pepe Cordero</strong>. Soy esposo, padre de dos hijas, profesional peruano y, como millones de ustedes, alguien que sueña con un mejor futuro para nuestro país.
+                </p>
+                <p class="text-gris-oscuro/80 font-medium leading-relaxed text-base">
+                  Nací y crecí en una familia de clase media trabajadora. Como muchas familias peruanas, aprendimos desde pequeños el valor del esfuerzo, del trabajo honesto y de salir adelante con sacrificio…
+                </p>
+                <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+              </div>
+              <div class="mt-6 pt-6 border-t border-gris-claro">
+                <button onclick="openModal()" class="inline-flex items-center gap-2 bg-azul-institucional hover:bg-azul-medio text-white font-black text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
+                  Leer carta completa →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Nuestros valores ── -->
+        <div class="mb-20 reveal">
+          <div class="text-center mb-8">
+            <p class="text-amarillo-progreso font-black text-sm uppercase tracking-widest mb-3">Nuestros valores</p>
+            <h2 class="text-azul-institucional font-black leading-tight" style="font-size:clamp(1.5rem,2.8vw,2rem)">Los principios que nos guían</h2>
+          </div>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-azul-institucional rounded-2xl p-6">
+              <div class="w-11 h-11 bg-amarillo-progreso rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-azul-institucional" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <h4 class="text-white font-black text-base mb-1">Honestidad</h4>
+              <p class="text-white/60 font-medium text-xs leading-relaxed">Cero tolerancia a la corrupción y al clientelismo, en todo nivel.</p>
+            </div>
+            <div class="bg-gris-claro/60 rounded-2xl p-6 border border-gris-claro">
+              <div class="w-11 h-11 bg-azul-institucional rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              </div>
+              <h4 class="text-azul-institucional font-black text-base mb-1">Meritocracia</h4>
+              <p class="text-gris-oscuro/65 font-medium text-xs leading-relaxed">Los mejores peruanos al servicio del Estado, sin importar apellidos.</p>
+            </div>
+            <div class="bg-gris-claro/60 rounded-2xl p-6 border border-gris-claro">
+              <div class="w-11 h-11 bg-azul-institucional rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <h4 class="text-azul-institucional font-black text-base mb-1">Cancha Plana</h4>
+              <p class="text-gris-oscuro/65 font-medium text-xs leading-relaxed">Que el lugar donde naces no determine tu futuro. Inversión real en primera infancia.</p>
+            </div>
+            <div class="bg-azul-institucional rounded-2xl p-6">
+              <div class="w-11 h-11 bg-amarillo-progreso rounded-xl flex items-center justify-center mb-4">
+                <svg class="w-6 h-6 text-azul-institucional" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </div>
+              <h4 class="text-white font-black text-base mb-1">Transparencia</h4>
+              <p class="text-white/60 font-medium text-xs leading-relaxed">Finanzas auditables, origen de fondos verificable y rendición de cuentas a los ciudadanos.</p>
+            </div>
+          </div>
         </div>
 
         <!-- ── FAQ ── -->
